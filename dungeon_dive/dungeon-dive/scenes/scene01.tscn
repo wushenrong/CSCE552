@@ -1,22 +1,17 @@
 [gd_scene format=3 uid="uid://bvvlf0bkbwrqx"]
 
-[node name="MainMenu" type="Control" unique_id=976090712]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://cety2o1jpkgxn" path="res://scenes/scene_01.gd" id="1_yf216"]
 
-[node name="GameName" type="TextureRect" parent="." unique_id=235175782]
-layout_mode = 1
+[node name="MainMenu" type="CanvasLayer" unique_id=585737389]
+script = ExtResource("1_yf216")
+
+[node name="GameTitle" type="TextureRect" parent="." unique_id=235175782]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 121.0
 grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1906671654]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,20 +28,23 @@ alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=702022105]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "Start"
 
 [node name="RulesButton" type="Button" parent="VBoxContainer" unique_id=1403978046]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "Rules"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=621562287]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "Settings"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=2076592403]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

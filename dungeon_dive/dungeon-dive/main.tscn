@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://bkcvdt4fmvui7"]
 
-[node name="MainCamera" type="Node" unique_id=1661598340]
+[ext_resource type="PackedScene" uid="uid://bvvlf0bkbwrqx" path="res://scenes/scene01.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node" unique_id=1661598340]
+
+[node name="MainMenu" parent="." unique_id=585737389 instance=ExtResource("1_ig7tw")]
