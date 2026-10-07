@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://bkcvdt4fmvui7"]
 
 [ext_resource type="PackedScene" uid="uid://bvvlf0bkbwrqx" path="res://scenes/scene01.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dfwsmv73qw1vy" path="res://CardManager.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://ccl03cwfe2dl" path="res://scenes/card.tscn" id="3_1bvp3"]
 
 [node name="Main" type="Node" unique_id=1661598340]
 
 [node name="MainMenu" parent="." unique_id=585737389 instance=ExtResource("1_ig7tw")]
+
+[node name="CardManager" type="Node2D" parent="MainMenu" unique_id=1223212601]
+script = ExtResource("2_h2yge")
+
+[node name="Card" parent="MainMenu/CardManager" unique_id=1472666852 instance=ExtResource("3_1bvp3")]
+position = Vector2(614, 673)
+
+[node name="Card2" parent="MainMenu/CardManager" unique_id=1966856640 instance=ExtResource("3_1bvp3")]
+position = Vector2(611, 516)
