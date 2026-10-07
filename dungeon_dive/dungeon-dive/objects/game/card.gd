@@ -1,12 +1,12 @@
 extends Area2D
 
 # Basic dragging from Godot Docs
+@export var click_radius = 96
 var dragging = false
-var click_radius = 96
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if (event.position - $CardImage.position).length() < click_radius:
+		if (event.position - self.position).length() < click_radius:
 			# Start dragging if the click is on the sprite.
 			if not dragging and event.pressed:
 				dragging = true
@@ -16,7 +16,7 @@ func _input(event):
 
 	if event is InputEventMouseMotion and dragging:
 		# While dragging, move the sprite with the mouse.
-		$CardImage.position = event.position
+		self.position = event.position
 
 	# TODO: Remove this branch and the following functions
 	# if event.pressed:
