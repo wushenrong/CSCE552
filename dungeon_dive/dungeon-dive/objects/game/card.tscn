@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://j5f55v5fv25g"]
+[gd_scene format=3 uid="uid://ccl03cwfe2dl"]
 
-[node name="Card" type="Node" unique_id=687572788]
+[ext_resource type="Texture2D" uid="uid://bvak6ewdpfxdb" path="res://assets/card_art/hearts/heart_0001.png" id="1_7lrg1"]
+[ext_resource type="Script" uid="uid://bwnm2c7tgk5rd" path="res://objects/game/card.gd" id="1_8bltf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_546wh"]
+size = Vector2(96, 128)
+
+[node name="Card" type="Node2D" unique_id=814496309]
+script = ExtResource("1_8bltf")
+
+[node name="CardImage" type="Sprite2D" parent="." unique_id=11624597]
+texture = ExtResource("1_7lrg1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=520085654]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=328048596]
+shape = SubResource("RectangleShape2D_546wh")
