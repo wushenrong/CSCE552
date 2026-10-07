@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://ddetksf8fp78w" path="res://scenes/scene_02.gd" id="1_lj1yu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2k27"]
+content_margin_left = 16.0
+content_margin_top = 0.0
+content_margin_right = 16.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1786148566]
 script = ExtResource("1_lj1yu")
 
@@ -15,25 +27,60 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1064327237]
+[node name="SettingsContainer" type="VBoxContainer" parent="." unique_id=1064327237]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -61.5
-offset_right = 180.0
-offset_bottom = 61.5
+offset_left = -250.0
+offset_top = -75.0
+offset_right = 250.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="VBoxContainer" unique_id=1706739807]
+[node name="MusicSetting" type="PanelContainer" parent="SettingsContainer" unique_id=49304241]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2k27")
+
+[node name="MusicContainer" type="HBoxContainer" parent="SettingsContainer/MusicSetting" unique_id=1944360369]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MusicLabel" type="Label" parent="SettingsContainer/MusicSetting/MusicContainer" unique_id=1367372071]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsContainer/MusicSetting/MusicContainer" unique_id=855632781]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 value = 100.0
 
-[node name="MusicSlider" type="HSlider" parent="VBoxContainer" unique_id=142699060]
+[node name="SFXSetting" type="PanelContainer" parent="SettingsContainer" unique_id=484856965]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2k27")
+
+[node name="SFXContainer" type="HBoxContainer" parent="SettingsContainer/SFXSetting" unique_id=2102017499]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SFXLabel" type="Label" parent="SettingsContainer/SFXSetting/SFXContainer" unique_id=1297481908]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Sound Effects"
+
+[node name="SFXSlider" type="HSlider" parent="SettingsContainer/SFXSetting/SFXContainer" unique_id=916426438]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 value = 100.0
 
 [node name="BackButton" type="Button" parent="." unique_id=394461022]
@@ -50,3 +97,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 64
 text = "Back"
+
+[connection signal="drag_ended" from="SettingsContainer/MusicSetting/MusicContainer/MusicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="drag_ended" from="SettingsContainer/SFXSetting/SFXContainer/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
