@@ -6,3 +6,14 @@
 [node name="GameBoard" type="Node" unique_id=2136704582]
 
 [node name="CardManager" parent="." unique_id=2143623140 instance=ExtResource("1_gy6nb")]
+
+[node name="PauseMenu" parent="." unique_id=2125591716 instance=ExtResource("2_fd2wn")]
+visible = false
+
+[node name="PauseButton" type="Button" parent="." unique_id=571156783]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 32
+text = "Pause"
+
+[connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
