@@ -21,6 +21,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			var card = raycast_check_for_card()
+
 			if card:
 				current_dragged_card = card
 
@@ -32,12 +33,12 @@ func raycast_check_for_card():
 	# Taken from Godot documentation
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()
+
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
 	parameters.collision_mask = 1
+
 	var result = space_state.intersect_point(parameters)
-	print("Mouse position: ", parameters.position)
-	print(result)
 
 	if result:
 		return result[0].collider.get_parent()
