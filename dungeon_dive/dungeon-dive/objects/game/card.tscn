@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccl03cwfe2dl"]
 
-[ext_resource type="Texture2D" uid="uid://bvak6ewdpfxdb" path="res://assets/Card_Art/Hearts/heart_0001.png" id="1_7lrg1"]
+[ext_resource type="Texture2D" uid="uid://bvak6ewdpfxdb" path="res://assets/card_art/hearts/heart_0001.png" id="1_7lrg1"]
 [ext_resource type="Script" uid="uid://bwnm2c7tgk5rd" path="res://objects/game/card.gd" id="1_8bltf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_546wh"]
