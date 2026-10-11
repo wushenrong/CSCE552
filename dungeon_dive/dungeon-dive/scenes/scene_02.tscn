@@ -15,6 +15,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1786148566]
+process_mode = 3
 script = ExtResource("1_lj1yu")
 
 [node name="SettingsLabel" type="Label" parent="." unique_id=501653643]
@@ -100,3 +101,4 @@ text = "Back"
 
 [connection signal="drag_ended" from="SettingsContainer/MusicSetting/MusicContainer/MusicSlider" to="." method="_on_music_slider_drag_ended"]
 [connection signal="drag_ended" from="SettingsContainer/SFXSetting/SFXContainer/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

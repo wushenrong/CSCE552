@@ -1,3 +1,23 @@
 [gd_scene format=3 uid="uid://yep0duijg1pc"]
 
-[node name="LoseMenu" type="Node" unique_id=1617594462]
+[ext_resource type="Script" uid="uid://cd502pbijkw2l" path="res://scenes/scene_06.gd" id="1_05vqt"]
+
+[node name="LoseMenu" type="CanvasLayer" unique_id=1082968329]
+script = ExtResource("1_05vqt")
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1580290197]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -170.0
+offset_right = 153.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

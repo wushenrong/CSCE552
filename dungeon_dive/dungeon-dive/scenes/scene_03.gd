@@ -11,11 +11,15 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_back_button_pressed() -> void:
-	hide()
-	get_tree().paused = false
-
-
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	show()
+
+
+func _on_settings_button_pressed() -> void:
+	SceneManager.show_settings()
+
+
+func _on_back_button_pressed() -> void:
+	hide()
+	get_tree().paused = false

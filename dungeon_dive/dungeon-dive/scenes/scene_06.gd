@@ -1,10 +1,6 @@
 extends Node
 
 
-@export var music_volume = 100
-@export var sfx_volume = 100
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,3 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_main_menu_button_pressed() -> void:
+	SceneManager.goto_scene("res://scenes/scene_01.tscn")
