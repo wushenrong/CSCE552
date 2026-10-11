@@ -24,9 +24,7 @@ func _input(event: InputEvent) -> void:
 
 			if card:
 				current_dragged_card = card
-
 		else:
-			print("Left Click Released")
 			current_dragged_card = null
 
 func raycast_check_for_card():

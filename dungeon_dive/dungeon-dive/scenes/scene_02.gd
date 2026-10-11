@@ -19,3 +19,7 @@ func _on_music_slider_drag_ended(value_changed: bool) -> void:
 func _on_sfx_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		PlayerSettings.sfx_volume = %SFXSlider.value
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().root.remove_child(self)

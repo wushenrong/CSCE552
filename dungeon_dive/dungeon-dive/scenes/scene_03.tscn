@@ -37,9 +37,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
+[node name="SaveButton" type="Button" parent="VBoxContainer" unique_id=1698990190]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Save & Exit"
+
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1722008640]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
