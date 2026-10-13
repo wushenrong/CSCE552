@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://cin8d2lvvcuje"]
 
-[node name="Tile" type="Node" unique_id=1213355650]
+[ext_resource type="Script" uid="uid://odf15yfxb2e4" path="res://objects/game/tile.gd" id="1_3lyq4"]
+[ext_resource type="Texture2D" uid="uid://bcn024v52tboo" path="res://assets/board_art/tile.png" id="1_o6aws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3sc4"]
+size = Vector2(96, 128)
+
+[node name="Tile" type="Node2D" unique_id=2095669093]
+script = ExtResource("1_3lyq4")
+
+[node name="TileSprite" type="Sprite2D" parent="." unique_id=693766899]
+texture = ExtResource("1_o6aws")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=261794093]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2080837904]
+shape = SubResource("RectangleShape2D_l3sc4")

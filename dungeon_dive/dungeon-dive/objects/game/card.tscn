@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccl03cwfe2dl"]
 
 [ext_resource type="Texture2D" uid="uid://bvak6ewdpfxdb" path="res://assets/card_art/hearts/heart_0001.png" id="1_7lrg1"]
-[ext_resource type="Script" uid="uid://bwnm2c7tgk5rd" path="res://objects/game/card.gd" id="1_8bltf"]
+[ext_resource type="Script" uid="uid://bssn1okhvh3sh" path="res://objects/game/card.gd" id="1_8bltf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_546wh"]
 size = Vector2(96, 128)
@@ -16,3 +16,6 @@ texture = ExtResource("1_7lrg1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=328048596]
 shape = SubResource("RectangleShape2D_546wh")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
