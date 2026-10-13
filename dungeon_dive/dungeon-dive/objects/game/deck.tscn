@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://8v5ci565nruo"]
 
 [ext_resource type="Texture2D" uid="uid://vtbwqqa4n6ah" path="res://assets/card_art/card_back.png" id="1_e8yp6"]
+[ext_resource type="Script" uid="uid://be80do8p57vko" path="res://objects/game/deck.gd" id="1_gpgj0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3sc4"]
 size = Vector2(96, 128)
 
 [node name="Deck" type="Node2D" unique_id=1792483066]
+script = ExtResource("1_gpgj0")
 
 [node name="DeckSprite" type="Sprite2D" parent="." unique_id=634762295]
 texture = ExtResource("1_e8yp6")
