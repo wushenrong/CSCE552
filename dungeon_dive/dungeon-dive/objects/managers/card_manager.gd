@@ -13,6 +13,7 @@ var is_hovered_on_card = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	$"../InputManager".connect("left_mouse_button_released", on_left_click_released)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,18 +21,6 @@ func _process(delta: float) -> void:
 	if card_being_dragged:
 		var mouse_position = get_global_mouse_position()
 		card_being_dragged.position = Vector2(clamp(mouse_position.x, 0, screen_size.x), clamp(mouse_position.y, 0, screen_size.y))
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			var card = raycast_check_for_card()
-
-			if card:
-				start_drag(card)
-		else:
-			if card_being_dragged:
-				finish_drag()
 
 
 func start_drag(card):
@@ -56,6 +45,11 @@ func finish_drag():
 func connect_card_signals(card):
 	card.connect("hover_on", on_hover_on_card)
 	card.connect("hover_off", on_hover_off_card)
+
+
+func on_left_click_released():
+	if card_being_dragged:
+		finish_drag()
 
 
 func on_hover_on_card(card):

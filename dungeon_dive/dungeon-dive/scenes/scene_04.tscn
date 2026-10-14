@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bow3tjfqf5532"]
 
-[ext_resource type="PackedScene" uid="uid://7i4kla0txwgg" path="res://objects/managers/card_manager.tscn" id="1_gy6nb"]
+[ext_resource type="PackedScene" uid="uid://btykbdipidsc4" path="res://objects/game/board.tscn" id="1_7atwa"]
 [ext_resource type="PackedScene" uid="uid://cvoptdt8h8f6j" path="res://scenes/scene_03.tscn" id="2_fd2wn"]
 [ext_resource type="PackedScene" uid="uid://c8sw380gbegr" path="res://scenes/scene_05.tscn" id="2_vxajl"]
 [ext_resource type="PackedScene" uid="uid://yep0duijg1pc" path="res://scenes/scene_06.tscn" id="3_7atwa"]
 
-[node name="GameBoard" type="Node" unique_id=2136704582]
+[node name="GameBoard" type="Node2D" unique_id=969703328]
 
-[node name="CardManager" parent="." unique_id=2143623140 instance=ExtResource("1_gy6nb")]
+[node name="Board" parent="." unique_id=590929236 instance=ExtResource("1_7atwa")]
 
 [node name="PauseButton" type="Button" parent="." unique_id=571156783]
 offset_right = 101.0
