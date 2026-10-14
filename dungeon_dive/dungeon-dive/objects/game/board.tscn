@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://btykbdipidsc4"]
+
+[ext_resource type="Script" uid="uid://dugm48r8kqj18" path="res://objects/managers/card_manager.gd" id="1_bofx1"]
+[ext_resource type="PackedScene" uid="uid://8v5ci565nruo" path="res://objects/game/deck.tscn" id="2_u0ej0"]
+[ext_resource type="PackedScene" uid="uid://cin8d2lvvcuje" path="res://objects/game/tile.tscn" id="3_8ht1c"]
+[ext_resource type="Script" uid="uid://bp134w5sq1u55" path="res://objects/managers/input_manager.gd" id="4_u0ej0"]
+
+[node name="Board" type="Node2D" unique_id=590929236]
+
+[node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
+script = ExtResource("1_bofx1")
+
+[node name="Deck" parent="." unique_id=1792483066 instance=ExtResource("2_u0ej0")]
+z_index = -2
+position = Vector2(100, 600)
+
+[node name="Tile" parent="." unique_id=2095669093 instance=ExtResource("3_8ht1c")]
+position = Vector2(242, 361)
+
+[node name="Tile2" parent="." unique_id=1868296379 instance=ExtResource("3_8ht1c")]
+position = Vector2(681, 377)
+
+[node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
+script = ExtResource("4_u0ej0")
