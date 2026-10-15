@@ -10,15 +10,18 @@
 [node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
 script = ExtResource("1_bofx1")
 
+[node name="DeckPosition" type="Marker2D" parent="CardManager" unique_id=454507122]
+position = Vector2(100, 600)
+
 [node name="Deck" parent="." unique_id=1792483066 instance=ExtResource("2_u0ej0")]
 z_index = -2
 position = Vector2(100, 600)
 
 [node name="Tile" parent="." unique_id=2095669093 instance=ExtResource("3_8ht1c")]
-position = Vector2(242, 361)
+position = Vector2(236, 119)
 
 [node name="Tile2" parent="." unique_id=1868296379 instance=ExtResource("3_8ht1c")]
-position = Vector2(681, 377)
+position = Vector2(394, 118)
 
 [node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
 script = ExtResource("4_u0ej0")
