@@ -10,9 +10,6 @@
 [node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
 script = ExtResource("1_bofx1")
 
-[node name="DeckPosition" type="Marker2D" parent="CardManager" unique_id=454507122]
-position = Vector2(100, 600)
-
 [node name="Deck" parent="." unique_id=1792483066 instance=ExtResource("2_u0ej0")]
 z_index = -2
 position = Vector2(100, 600)
