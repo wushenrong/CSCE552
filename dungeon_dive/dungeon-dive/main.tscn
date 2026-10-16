@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bkcvdt4fmvui7"]
 
 [ext_resource type="PackedScene" uid="uid://bvvlf0bkbwrqx" path="res://scenes/scene_01.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://0urtnkortd15" path="res://objects/game/top_card.tscn" id="2_h2yge"]
 
 [node name="Main" type="Node" unique_id=1661598340]
 
 [node name="MainMenu" parent="." unique_id=585737389 instance=ExtResource("1_ig7tw")]
+
+[node name="TopCard" parent="." unique_id=677857592 instance=ExtResource("2_h2yge")]
+position = Vector2(109, 433)
