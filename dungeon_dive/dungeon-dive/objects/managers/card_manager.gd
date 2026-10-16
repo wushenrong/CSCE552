@@ -39,7 +39,7 @@ func finish_drag():
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		card_slot_found.is_card_in_slot = true
 	else:
-		card_being_dragged.position = $DeckPosition.position
+		card_being_dragged.position = $"../Deck".position
 
 	card_being_dragged = null
 
