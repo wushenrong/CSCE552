@@ -80,47 +80,31 @@ func highlight_card(card, is_being_hovered_over):
 			card.z_index = 1
 
 
-func raycast_check_for_card():
+func masked_raycast(collision_mask):
 	# Taken from Godot documentation
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()
 
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
-	parameters.collision_mask = COLLISION_MASK_CARD
+	parameters.collision_mask = collision_mask
 
-	var result = space_state.intersect_point(parameters)
+	return space_state.intersect_point(parameters)
+
+
+func raycast_check_for_card():
+	var result = masked_raycast(COLLISION_MASK_CARD)
 
 	if result:
-		return get_card_with_highest_z_index(result)
+		return ManagerUtilities.get_highest_z_index_collider(result).get_parent()
 
 	return null
 
 
 func raycast_check_for_tile():
-	# Taken from Godot documentation
-	var space_state = get_world_2d().direct_space_state
-	var parameters = PhysicsPointQueryParameters2D.new()
-
-	parameters.position = get_global_mouse_position()
-	parameters.collide_with_areas = true
-	parameters.collision_mask = COLLISION_MASK_TILE
-
-	var result = space_state.intersect_point(parameters)
+	var result = masked_raycast(COLLISION_MASK_TILE)
 
 	if result:
 		return result[0].collider.get_parent()
 
 	return null
-
-
-func get_card_with_highest_z_index(cards):
-	var highest_z_card = cards[0].collider.get_parent()
-
-	for card in cards:
-		var current_card = card.collider.get_parent()
-
-		if current_card.z_index > highest_z_card.z_index:
-			highest_z_card = current_card
-
-	return highest_z_card
