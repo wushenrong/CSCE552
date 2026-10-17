@@ -38,7 +38,7 @@ func raycast_at_cursor():
 	var result = space_state.intersect_point(parameters)
 
 	if result:
-		var collider = result[0].collider
+		var collider = ManagerUtilities.get_highest_z_index_collider(result)
 		var result_collision_mask = collider.collision_mask
 
 		match result_collision_mask:
