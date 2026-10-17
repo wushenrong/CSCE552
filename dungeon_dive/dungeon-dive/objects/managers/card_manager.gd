@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 
 func start_drag(card):
 	card_being_dragged = card
-	card.starting_position = card.position
 	card.scale = Vector2(1, 1)
 
 
