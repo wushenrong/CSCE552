@@ -11,18 +11,87 @@
 [node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
 script = ExtResource("1_bofx1")
 
-[node name="Deck" parent="." unique_id=1792483066 instance=ExtResource("2_u0ej0")]
-z_index = -2
-position = Vector2(100, 600)
-
-[node name="Tile" parent="." unique_id=2095669093 instance=ExtResource("3_8ht1c")]
-position = Vector2(236, 119)
-
-[node name="Tile2" parent="." unique_id=1868296379 instance=ExtResource("3_8ht1c")]
-position = Vector2(394, 118)
-
 [node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
 script = ExtResource("4_u0ej0")
 
 [node name="RunRewards" type="Node2D" parent="." unique_id=337918548]
 script = ExtResource("5_u0ej0")
+
+[node name="Deck" parent="." unique_id=1792483066 instance=ExtResource("2_u0ej0")]
+z_index = -2
+position = Vector2(200, 850)
+
+[node name="Tile0" parent="." unique_id=2095669093 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(700, 250)
+
+[node name="Tile1" parent="." unique_id=1868296379 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(820, 250)
+
+[node name="Tile2" parent="." unique_id=1764441808 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(940, 250)
+
+[node name="Tile3" parent="." unique_id=2003876244 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1060, 250)
+
+[node name="Tile4" parent="." unique_id=2012923829 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1180, 250)
+
+[node name="Tile5" parent="." unique_id=569883958 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(700, 400)
+
+[node name="Tile6" parent="." unique_id=622767980 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(820, 400)
+
+[node name="Tile7" parent="." unique_id=153607449 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(940, 400)
+
+[node name="Tile8" parent="." unique_id=599077024 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1060, 400)
+
+[node name="Tile9" parent="." unique_id=177681619 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1180, 400)
+
+[node name="Tile10" parent="." unique_id=1433481496 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(700, 550)
+
+[node name="Tile11" parent="." unique_id=914244783 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(820, 550)
+
+[node name="Tile12" parent="." unique_id=204516462 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(940, 550)
+
+[node name="Tile13" parent="." unique_id=686994033 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1060, 550)
+
+[node name="Tile14" parent="." unique_id=1297389817 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1180, 550)
+
+[node name="Tile15" parent="." unique_id=2108796802 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(700, 700)
+
+[node name="Tile16" parent="." unique_id=360647525 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(820, 700)
+
+[node name="Tile17" parent="." unique_id=517273205 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(940, 700)
+
+[node name="Tile18" parent="." unique_id=1794539421 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1060, 700)
+
+[node name="Tile19" parent="." unique_id=1165048554 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1180, 700)
+
+[node name="Tile20" parent="." unique_id=128883142 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(700, 850)
+
+[node name="Tile21" parent="." unique_id=1647443839 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(820, 850)
+
+[node name="Tile22" parent="." unique_id=634975041 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(940, 850)
+
+[node name="Tile23" parent="." unique_id=412493410 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1060, 850)
+
+[node name="Tile24" parent="." unique_id=1167535797 groups=["tiles"] instance=ExtResource("3_8ht1c")]
+position = Vector2(1180, 850)
