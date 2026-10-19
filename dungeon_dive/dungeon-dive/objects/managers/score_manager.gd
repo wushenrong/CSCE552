@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 ## Scores the 5x5 board: 5 rows + 5 columns, each scored as a poker hand.
 ## line score = points (American Poker Squares) x mult
 
@@ -61,6 +61,7 @@ func score_line(cards: Array) -> int:
 
 
 func get_row(board: Array, row: int) -> Array:
+	# Each row is 150px apart from center of card/tile
 	var cards = []
 	for col in BOARD_SIZE:
 		cards.append(board[row * BOARD_SIZE + col])
@@ -68,6 +69,7 @@ func get_row(board: Array, row: int) -> Array:
 
 
 func get_column(board: Array, col: int) -> Array:
+	# Each column is 120px apart from center of card/tile
 	var cards = []
 	for row in BOARD_SIZE:
 		cards.append(board[row * BOARD_SIZE + col])

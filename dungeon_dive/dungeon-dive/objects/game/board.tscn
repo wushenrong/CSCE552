@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dugm48r8kqj18" path="res://objects/managers/card_manager.gd" id="1_bofx1"]
 [ext_resource type="PackedScene" uid="uid://8v5ci565nruo" path="res://objects/game/deck.tscn" id="2_u0ej0"]
 [ext_resource type="PackedScene" uid="uid://cin8d2lvvcuje" path="res://objects/game/tile.tscn" id="3_8ht1c"]
+[ext_resource type="Script" uid="uid://jpckpj2o4e2v" path="res://objects/managers/score_manager.gd" id="3_u0ej0"]
 [ext_resource type="Script" uid="uid://bp134w5sq1u55" path="res://objects/managers/input_manager.gd" id="4_u0ej0"]
 [ext_resource type="Script" uid="uid://bfn1c2n6lu5hg" path="res://objects/managers/run_rewards.gd" id="5_u0ej0"]
 
@@ -16,6 +17,25 @@ script = ExtResource("4_u0ej0")
 
 [node name="RunRewards" type="Node2D" parent="." unique_id=337918548]
 script = ExtResource("5_u0ej0")
+
+[node name="ScoreManager" type="Node2D" parent="." unique_id=1227665085]
+script = ExtResource("3_u0ej0")
+
+[node name="ScorePanel" type="PanelContainer" parent="ScoreManager" unique_id=1233321350]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_bottom = 53.0
+grow_horizontal = 0
+
+[node name="ScoreLabel" type="Label" parent="ScoreManager/ScorePanel" unique_id=2114366090]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Deck" parent="." unique_id=1792483066 instance=ExtResource("2_u0ej0")]
 z_index = -2
