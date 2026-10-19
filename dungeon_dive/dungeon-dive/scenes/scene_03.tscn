@@ -6,6 +6,13 @@
 process_mode = 2
 script = ExtResource("1_tjfg8")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=572303436]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="PauseLabel" type="Label" parent="." unique_id=1129457178]
 anchors_preset = 10
 anchor_right = 1.0
