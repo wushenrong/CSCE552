@@ -15,7 +15,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1786148566]
-process_mode = 2
+process_mode = 3
 layer = 2
 script = ExtResource("1_lj1yu")
 
