@@ -19,6 +19,9 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if get_tree().paused:
+		return
+
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			left_mouse_button_clicked.emit()
