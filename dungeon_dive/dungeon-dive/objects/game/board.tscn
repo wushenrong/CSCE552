@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://btykbdipidsc4"]
 
 [ext_resource type="Script" uid="uid://dugm48r8kqj18" path="res://objects/managers/card_manager.gd" id="1_bofx1"]
+[ext_resource type="AudioStream" uid="uid://bbkq33y0q5j1r" path="res://assets/sound_effects/card_placed_down_fx.wav" id="2_8ht1c"]
+[ext_resource type="AudioStream" uid="uid://j1d5tlmi2de6" path="res://assets/sound_effects/card_draw_from_deck_fx.wav" id="2_gwrxt"]
 [ext_resource type="PackedScene" uid="uid://8v5ci565nruo" path="res://objects/game/deck.tscn" id="2_u0ej0"]
 [ext_resource type="PackedScene" uid="uid://cin8d2lvvcuje" path="res://objects/game/tile.tscn" id="3_8ht1c"]
 [ext_resource type="Script" uid="uid://jpckpj2o4e2v" path="res://objects/managers/score_manager.gd" id="3_u0ej0"]
@@ -11,6 +13,14 @@
 
 [node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
 script = ExtResource("1_bofx1")
+
+[node name="CardPickupSFX" type="AudioStreamPlayer2D" parent="CardManager" unique_id=1824685753]
+stream = ExtResource("2_gwrxt")
+bus = &"SoundEffects"
+
+[node name="CardPlacedSFX" type="AudioStreamPlayer2D" parent="CardManager" unique_id=700590021]
+stream = ExtResource("2_8ht1c")
+bus = &"SoundEffects"
 
 [node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
 script = ExtResource("4_u0ej0")

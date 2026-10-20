@@ -29,6 +29,7 @@ func _process(_delta: float) -> void:
 func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
+	$CardPickupSFX.play()
 
 
 func finish_drag():
@@ -47,6 +48,8 @@ func finish_drag():
 		card_being_dragged.position = $"../Deck".position
 
 	card_being_dragged = null
+
+	$CardPlacedSFX.play()
 
 
 func connect_card_signals(card):
