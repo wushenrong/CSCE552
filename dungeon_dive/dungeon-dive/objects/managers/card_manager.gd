@@ -1,6 +1,10 @@
 extends Node2D
 
 
+const CARD_PLACED_SFX = preload("res://assets/sound_effects/card_placed_down_fx.wav")
+const CARD_DRAWN_SFX = preload("res://assets/sound_effects/card_draw_from_deck_fx.wav")
+
+
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_TILE = 2
 
@@ -29,7 +33,7 @@ func _process(_delta: float) -> void:
 func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
-	$CardPickupSFX.play()
+	play_card_sfx(CARD_DRAWN_SFX)
 
 
 func finish_drag():
@@ -49,7 +53,7 @@ func finish_drag():
 
 	card_being_dragged = null
 
-	$CardPlacedSFX.play()
+	play_card_sfx(CARD_PLACED_SFX)
 
 
 func connect_card_signals(card):
@@ -87,6 +91,11 @@ func highlight_card(card, is_being_hovered_over):
 		else:
 			card.scale = Vector2(1, 1)
 			card.z_index = 1
+
+
+func play_card_sfx(stream):
+	$CardSFX.stream = stream
+	$CardSFX.play()
 
 
 func masked_raycast(collision_mask):

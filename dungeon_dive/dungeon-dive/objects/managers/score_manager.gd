@@ -3,6 +3,11 @@ extends Node2D
 ## line score = points (American Poker Squares) x mult
 
 
+const SINGLE_COIN_FX = preload("res://assets/sound_effects/single_coin_falling_fx.wav")
+const DOUBLE_COIN_FX = preload("res://assets/sound_effects/double_coins_falling_fx.wav")
+const COINS_FALLING_FX = preload("res://assets/sound_effects/coins_falling_fx.wav")
+
+
 const BOARD_SIZE = 5
 
 enum Hand {
