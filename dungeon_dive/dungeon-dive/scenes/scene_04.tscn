@@ -15,17 +15,17 @@ offset_bottom = 53.0
 theme_override_font_sizes/font_size = 32
 text = "Pause"
 
-[node name="RewardsMenu" parent="." unique_id=1630712063 instance=ExtResource("2_vxajl")]
+[node name="RewardsMenu" parent="." unique_id=1630712063 node_paths=PackedStringArray("board") instance=ExtResource("2_vxajl")]
 visible = false
+board = NodePath("../Board")
 
-[node name="LoseMenu" parent="." unique_id=1617594462 instance=ExtResource("3_7atwa")]
+[node name="LoseMenu" parent="." unique_id=1617594462 node_paths=PackedStringArray("board") instance=ExtResource("3_7atwa")]
 visible = false
+board = NodePath("../Board")
 
 [node name="PauseMenu" parent="." unique_id=2125591716 instance=ExtResource("2_fd2wn")]
 visible = false
 
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
-[connection signal="wave_cleared" from="Board/WaveManager" to="RewardsMenu" method="_on_wave_cleared"]
-[connection signal="wave_failed" from="Board/WaveManager" to="LoseMenu" method="_on_wave_failed"]
-[connection signal="reward_chosen" from="RewardsMenu" to="Board/RunRewards" method="add_reward_by_id"]
 [connection signal="closed" from="RewardsMenu" to="Board/WaveManager" method="start_next_wave"]
+[connection signal="reward_chosen" from="RewardsMenu" to="Board/RunRewards" method="add_reward_by_id"]

@@ -45,6 +45,7 @@ func finish_drag():
 		card_being_dragged.position = card_slot_found.position
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		card_slot_found.is_card_in_slot = true
+
 		var tile_index = int(card_slot_found.name.trim_prefix("Tile"))
 		card_being_dragged.tile_index = tile_index
 		board_cards[tile_index] = card_being_dragged
@@ -69,8 +70,7 @@ func clear_board():
 	board_cards.fill(null)
 	is_hovered_on_card = false
 
-	for tile in get_tree().get_nodes_in_group("tiles"):
-		tile.is_card_in_slot = false
+	get_tree().call_group("tiles", "reset_tile")
 
 
 func connect_card_signals(card):

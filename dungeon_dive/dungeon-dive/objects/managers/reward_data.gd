@@ -5,7 +5,7 @@ const REWARDS = {
 		"id": "heart_of_hearts",
 		"name": "Heart of Hearts",
 		"type": "suit_bonus",
-		"suit": "Hearts",
+		"suit": "hearts",
 		"icon": "heart_of_hearts",
 		"description": "Each Heart in a scoring hand gives additional points equal to the total number of Hearts in that hand."
 	},
@@ -13,7 +13,7 @@ const REWARDS = {
 		"id": "club_of_clubs",
 		"name": "Club of Clubs",
 		"type": "suit_bonus",
-		"suit": "Clubs",
+		"suit": "clubs",
 		"icon": "club_of_clubs",
 		"description": "Each Club in a scoring hand gives additional points equal to the total number of Clubs in that hand."
 	},
@@ -21,7 +21,7 @@ const REWARDS = {
 		"id": "spade_of_spades",
 		"name": "Spade of Spades",
 		"type": "suit_bonus",
-		"suit": "Spades",
+		"suit": "spades",
 		"icon": "spade_of_spades",
 		"description": "Each Spade in a scoring hand gives additional points equal to the total number of Spades in that hand."
 	},
@@ -29,7 +29,7 @@ const REWARDS = {
 		"id": "diamond_of_diamonds",
 		"name": "Diamond of Diamonds",
 		"type": "suit_bonus",
-		"suit": "Diamonds",
+		"suit": "diamonds",
 		"icon": "diamond_of_diamonds",
 		"description": "Each Diamond in a scoring hand gives additional points equal to the total number of Diamonds in that hand."
 	},
@@ -169,7 +169,6 @@ const REWARDS = {
 		"icon": "radiant_ten",
 		"description": "Add 5 points to a scoring hand containing a Ten."
 	},
-	
 }
 
 func get_reward(reward_id: String) -> Dictionary:
