@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btykbdipidsc4"]
 
 [ext_resource type="Script" uid="uid://dugm48r8kqj18" path="res://objects/managers/card_manager.gd" id="1_bofx1"]
+[ext_resource type="Script" uid="uid://i68euk8iygi8" path="res://objects/managers/reward_selection.gd" id="1_gwrxt"]
 [ext_resource type="PackedScene" uid="uid://8v5ci565nruo" path="res://objects/game/deck.tscn" id="2_u0ej0"]
 [ext_resource type="PackedScene" uid="uid://cin8d2lvvcuje" path="res://objects/game/tile.tscn" id="3_8ht1c"]
 [ext_resource type="Script" uid="uid://jpckpj2o4e2v" path="res://objects/managers/score_manager.gd" id="3_u0ej0"]
@@ -8,6 +9,9 @@
 [ext_resource type="Script" uid="uid://bfn1c2n6lu5hg" path="res://objects/managers/run_rewards.gd" id="5_u0ej0"]
 
 [node name="Board" type="Node2D" unique_id=590929236]
+
+[node name="RewardSelection" type="Node" parent="." unique_id=1518282114]
+script = ExtResource("1_gwrxt")
 
 [node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
 script = ExtResource("1_bofx1")

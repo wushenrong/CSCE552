@@ -1,7 +1,4 @@
 extends Node2D
-## Scores the 5x5 board: 5 rows + 5 columns, each scored as a poker hand.
-## line score = points (American Poker Squares) x mult
-
 
 const SINGLE_COIN_FX = preload("res://assets/sound_effects/single_coin_falling_fx.wav")
 const DOUBLE_COIN_FX = preload("res://assets/sound_effects/double_coins_falling_fx.wav")
@@ -38,8 +35,6 @@ const HAND_POINTS = {
 	Hand.ROYAL_FLUSH: 100,
 }
 
-
-## board: 25 cards in row order (index = row * 5 + col), null for an empty tile.
 func score_board(board: Array) -> int:
 	var total = 0
 	var pitch = 1.0
@@ -60,11 +55,17 @@ func score_board(board: Array) -> int:
 
 
 func score_line(cards: Array) -> int:
+	if cards.size() != BOARD_SIZE:
+		return 0
+
+	for card in cards:
+		if card == null:
+			return 0
+
 	var hand = evaluate_hand(cards)
 	var points = HAND_POINTS[hand]
 	var mult = 1.0
 
-	# TODO: boss debuffs and card modifiers
 	points = apply_debuffs_to_points(cards, hand, points)
 	mult = apply_debuffs_to_mult(cards, hand, mult)
 	points = apply_modifiers_to_points(cards, hand, points)
@@ -74,7 +75,6 @@ func score_line(cards: Array) -> int:
 
 
 func get_row(board: Array, row: int) -> Array:
-	# Each row is 150px apart from center of card/tile
 	var cards = []
 	for col in BOARD_SIZE:
 		cards.append(board[row * BOARD_SIZE + col])
@@ -82,7 +82,6 @@ func get_row(board: Array, row: int) -> Array:
 
 
 func get_column(board: Array, col: int) -> Array:
-	# Each column is 120px apart from center of card/tile
 	var cards = []
 	for row in BOARD_SIZE:
 		cards.append(board[row * BOARD_SIZE + col])
@@ -148,10 +147,16 @@ func check_straight(ranks: Array) -> bool:
 	if ranks[4] - ranks[0] == 4:
 		return true
 
-	return ranks == [2, 3, 4, 5, 14] # ace-low
+	return ranks == [2, 3, 4, 5, 14]
 
 
-# To be defined: boss debuffs
+func get_rank(card) -> int:
+	return card.get("rank")
+
+
+func get_suit(card) -> String:
+	return card.get("suit")
+
 
 func apply_debuffs_to_points(_cards: Array, _hand: Hand, points: float) -> float:
 	return points
@@ -161,13 +166,38 @@ func apply_debuffs_to_mult(_cards: Array, _hand: Hand, mult: float) -> float:
 	return mult
 
 
-# To be defined: card modifiers
+func apply_modifiers_to_points(cards: Array, _hand: Hand, points: float) -> float:
+	var active_modifiers = $"../RunRewards".player_rewards
 
-func apply_modifiers_to_points(_cards: Array, _hand: Hand, points: float) -> float:
+	for modifier in active_modifiers:
+		if modifier["type"] == "suit_bonus":
+			var matching_cards = 0
+
+			for card in cards:
+				if get_suit(card) == modifier["suit"]:
+					matching_cards += 1
+
+			points += matching_cards * matching_cards
+
+		elif modifier["type"] == "rank_bonus":
+			for card in cards:
+				if get_rank(card) == modifier["rank"]:
+					points += 5
+					break
+
 	return points
 
 
-func apply_modifiers_to_mult(_cards: Array, _hand: Hand, mult: float) -> float:
+func apply_modifiers_to_mult(cards: Array, _hand: Hand, mult: float) -> float:
+	var active_modifiers = $"../RunRewards".player_rewards
+
+	for modifier in active_modifiers:
+		if modifier["type"] == "rank_multiplier":
+			for card in cards:
+				if get_rank(card) == modifier["rank"]:
+					mult *= 1.1
+					break
+
 	return mult
 
 

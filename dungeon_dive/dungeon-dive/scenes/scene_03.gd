@@ -12,6 +12,7 @@ func _on_settings_button_pressed() -> void:
 
 func _on_save_button_pressed() -> void:
 	# TODO: Perform saving game process here
+	get_tree().paused = false
 	SceneManager.goto_scene("res://scenes/scene_01.tscn")
 
 
