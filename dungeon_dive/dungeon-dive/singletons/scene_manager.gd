@@ -14,7 +14,7 @@ func _ready():
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		_deferred_delete_settings.call_deferred()
+		settings_scene.queue_free()
 		get_tree().quit()
 
 
@@ -32,10 +32,6 @@ func _deferred_goto_scene(path: String):
 	get_tree().root.add_child(current_scene)
 
 	get_tree().current_scene = current_scene
-
-
-func _deferred_delete_settings():
-	settings_scene.free()
 
 
 func show_settings():

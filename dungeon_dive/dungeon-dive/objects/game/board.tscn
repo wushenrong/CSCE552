@@ -22,6 +22,7 @@ script = ExtResource("4_u0ej0")
 script = ExtResource("5_u0ej0")
 
 [node name="ScoreManager" type="Node2D" parent="." unique_id=1227665085]
+position = Vector2(1920, 0)
 script = ExtResource("3_u0ej0")
 
 [node name="ScorePanel" type="PanelContainer" parent="ScoreManager" unique_id=1233321350]

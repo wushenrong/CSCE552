@@ -42,12 +42,20 @@ const HAND_POINTS = {
 ## board: 25 cards in row order (index = row * 5 + col), null for an empty tile.
 func score_board(board: Array) -> int:
 	var total = 0
+	var pitch = 1.0
 
 	for i in BOARD_SIZE:
 		total += score_line(get_row(board, i))
-		total += score_line(get_column(board, i))
+		play_score_sfx(SINGLE_COIN_FX, pitch)
+		pitch += 0.2
 
+		total += score_line(get_column(board, i))
+		play_score_sfx(DOUBLE_COIN_FX, pitch)
+		pitch += 0.2
+
+	play_score_sfx(COINS_FALLING_FX, 1.0)
 	%ScoreLabel.text = "Score: %d" % total
+
 	return total
 
 
@@ -88,7 +96,7 @@ func evaluate_hand(line: Array) -> Hand:
 
 	var rank_counts = {}
 	for card in cards:
-		var rank = get_rank(card)
+		var rank = card.get_rank()
 		rank_counts[rank] = rank_counts.get(rank, 0) + 1
 
 	var counts = rank_counts.values()
@@ -98,12 +106,13 @@ func evaluate_hand(line: Array) -> Hand:
 	var is_flush = false
 	var is_straight = false
 	if cards.size() == BOARD_SIZE:
-		is_flush = cards.all(func(card): return get_suit(card) == get_suit(cards[0]))
+		is_flush = cards.all(func(card): return card.suit == cards[0].suit)
 		is_straight = check_straight(rank_counts.keys())
 
 	if is_straight and is_flush:
 		if rank_counts.has(10) and rank_counts.has(14):
 			return Hand.ROYAL_FLUSH
+
 		return Hand.STRAIGHT_FLUSH
 
 	if counts[0] == 4:
@@ -142,16 +151,6 @@ func check_straight(ranks: Array) -> bool:
 	return ranks == [2, 3, 4, 5, 14] # ace-low
 
 
-# To be defined once cards have rank/suit
-
-func get_rank(card) -> int:
-	return card.get("rank")
-
-
-func get_suit(card) -> int:
-	return card.get("suit")
-
-
 # To be defined: boss debuffs
 
 func apply_debuffs_to_points(_cards: Array, _hand: Hand, points: float) -> float:
@@ -170,3 +169,10 @@ func apply_modifiers_to_points(_cards: Array, _hand: Hand, points: float) -> flo
 
 func apply_modifiers_to_mult(_cards: Array, _hand: Hand, mult: float) -> float:
 	return mult
+
+
+func play_score_sfx(stream: AudioStream, pitch: float):
+	$ScoreSFX.stream = stream
+	$ScoreSFX.pitch_scale = pitch
+	$ScoreSFX.play()
+	await get_tree().create_timer(stream.get_length() + 0.1).timeout

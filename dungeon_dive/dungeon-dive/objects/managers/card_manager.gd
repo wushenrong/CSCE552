@@ -47,7 +47,7 @@ func finish_drag():
 		card_slot_found.is_card_in_slot = true
 		var tile_index = int(card_slot_found.name.trim_prefix("Tile"))
 		board_cards[tile_index] = card_being_dragged
-		$"../ScoreManager".score_board(board_cards)
+		# $"../ScoreManager".score_board(board_cards)
 	else:
 		card_being_dragged.position = $"../Deck".position
 
@@ -93,12 +93,12 @@ func highlight_card(card, is_being_hovered_over):
 			card.z_index = 1
 
 
-func play_card_sfx(stream):
+func play_card_sfx(stream: AudioStream):
 	$CardSFX.stream = stream
 	$CardSFX.play()
 
 
-func masked_raycast(collision_mask):
+func masked_raycast(collision_mask: int):
 	# Taken from Godot documentation
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()

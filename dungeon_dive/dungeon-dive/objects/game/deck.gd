@@ -9,8 +9,8 @@ const TOP_CARD_COUNT = 1
 
 const SUITS = ["Hearts", "Clubs", "Spades", "Diamonds"]
 const RANKS = [
-    "Ace", "2", "3", "4", "5", "6", "7",
-    "8", "9", "10", "Jack", "Queen", "King"
+	"Ace", "2", "3", "4", "5", "6", "7",
+	"8", "9", "10", "Jack", "Queen", "King"
 ]
 
 
@@ -27,24 +27,39 @@ func _ready() -> void:
 		new_card.position = $"../Deck".position
 		add_to_cards_drawn(new_card)
 
+	# # TODO: Load deck from save
+	# create_deck()
+
 
 func create_deck():
-	deck.clear()
-
 	for suit in SUITS:
 		for rank in RANKS:
 			var card = {
-                "suit": suit,
-                "rank": rank,
-                "modifiers": []
-            }
+				"suit": suit,
+				"rank": rank,
+				"modifiers": []
+			}
 			deck.append(card)
+
+
+func reset_deck():
+	for i in range(cards_drawn.size()):
+		var card = cards_drawn.pop_back()
+		deck.append(card)
 
 
 func draw_card():
 	print("drawing card")
 
-	# TODO: Create new card and handle available card in deck
+	var card = deck.pick_random()
+
+	var card_obj = CARD_SCENE.instantiate()
+
+	card_obj.rank = card.rank
+	card_obj.suit = card.suit
+
+	deck.erase(card)
+	cards_drawn.append(card)
 
 
 func add_to_cards_drawn(card):
