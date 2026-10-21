@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dpc4qbtrp2kgh"]
+
+[ext_resource type="AudioStream" uid="uid://cl4wuwt82pqyr" path="res://assets/music/bgm_theme.ogg" id="1_hbl1c"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" unique_id=1370221121]
+process_mode = 3
+stream = ExtResource("1_hbl1c")
+autoplay = true
+bus = &"Music"

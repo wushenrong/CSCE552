@@ -35,6 +35,7 @@ const HAND_POINTS = {
 	Hand.ROYAL_FLUSH: 100,
 }
 
+
 func score_board(board: Array) -> int:
 	var total = 0
 	var pitch = 1.0
@@ -90,12 +91,13 @@ func get_column(board: Array, col: int) -> Array:
 
 func evaluate_hand(line: Array) -> Hand:
 	var cards = line.filter(func(card): return card != null)
+
 	if cards.is_empty():
 		return Hand.NONE
 
 	var rank_counts = {}
 	for card in cards:
-		var rank = card.get_rank()
+		var rank = card.rank
 		rank_counts[rank] = rank_counts.get(rank, 0) + 1
 
 	var counts = rank_counts.values()

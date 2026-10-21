@@ -7,10 +7,10 @@ const CARD_SCENE = preload("res://objects/game/card.tscn")
 const TOP_CARD_COUNT = 1
 
 
-const SUITS = ["Hearts", "Clubs", "Spades", "Diamonds"]
+const SUITS = ["hearts", "clubs", "spades", "diamonds"]
 const RANKS = [
-	"Ace", "2", "3", "4", "5", "6", "7",
-	"8", "9", "10", "Jack", "Queen", "King"
+	1, 2, 3, 4, 5, 6, 7,
+	8, 9, 10, 11, 12, 13
 ]
 
 
@@ -20,15 +20,8 @@ var cards_drawn := []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(TOP_CARD_COUNT):
-		var new_card = CARD_SCENE.instantiate()
-		$"../CardManager".add_child(new_card)
-		new_card.name = "Card"
-		new_card.position = $"../Deck".position
-		add_to_cards_drawn(new_card)
-
 	# # TODO: Load deck from save
-	# create_deck()
+	create_deck()
 
 
 func create_deck():
@@ -49,21 +42,17 @@ func reset_deck():
 
 
 func draw_card():
-	print("drawing card")
-
 	var card = deck.pick_random()
-
 	var card_obj = CARD_SCENE.instantiate()
 
-	card_obj.rank = card.rank
-	card_obj.suit = card.suit
+	card_obj.position = $"../Deck".position
+	card_obj.set_card_type(card.rank, card.suit, card.modifiers)
+
+	$"../CardManager".add_child(card_obj)
+	$"../CardManager".connect_card_signals(card_obj)
 
 	deck.erase(card)
 	cards_drawn.append(card)
-
-
-func add_to_cards_drawn(card):
-	cards_drawn.insert(0, card)
 
 
 func animate_card_to_position(card, new_position):

@@ -15,6 +15,7 @@ var is_hovered_on_card := false
 
 var board_cards := []
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	board_cards.resize(25)
@@ -47,7 +48,6 @@ func finish_drag():
 		card_slot_found.is_card_in_slot = true
 		var tile_index = int(card_slot_found.name.trim_prefix("Tile"))
 		board_cards[tile_index] = card_being_dragged
-		# $"../ScoreManager".score_board(board_cards)
 	else:
 		card_being_dragged.position = $"../Deck".position
 
@@ -57,8 +57,11 @@ func finish_drag():
 
 
 func connect_card_signals(card):
-	card.connect("hover_on", on_hover_on_card)
-	card.connect("hover_off", on_hover_off_card)
+	if not card.hover_on.is_connected(on_hover_on_card):
+		card.connect("hover_on", on_hover_on_card)
+
+	if not card.hover_off.is_connected(on_hover_off_card):
+		card.connect("hover_off", on_hover_off_card)
 
 
 func on_left_click_released():

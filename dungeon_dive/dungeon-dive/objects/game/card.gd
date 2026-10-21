@@ -13,6 +13,16 @@ func _ready() -> void:
 	get_parent().connect_card_signals(self)
 
 
+func set_card_type(card_rank: int, card_suit: String, card_modifiers: Array):
+	rank = card_rank
+	suit = card_suit
+	modifiers = card_modifiers
+
+	var card_texture = [suit, suit.substr(0, suit.length() - 1), rank]
+
+	$CardImage.texture = load("res://assets/card_art/%s/%s_%04d.png" % card_texture)
+
+
 func _on_area_2d_mouse_entered() -> void:
 	hover_on.emit(self)
 

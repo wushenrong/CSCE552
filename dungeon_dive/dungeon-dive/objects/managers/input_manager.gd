@@ -9,19 +9,11 @@ const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_DECK = 4
 
 
-var card_manager_reference: Node2D
-var deck_reference: Node2D
-
-
-func _ready() -> void:
-	card_manager_reference = $"../CardManager"
-	deck_reference = $"../Deck"
+@onready var card_manager_reference := $"../CardManager"
+@onready var deck_reference := $"../Deck"
 
 
 func _input(event: InputEvent) -> void:
-	if get_tree().paused:
-		return
-
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			left_mouse_button_clicked.emit()
