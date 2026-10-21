@@ -5,6 +5,7 @@ const TOP_CARD_COUNT = 1
 
 
 var card_scene = preload("res://objects/game/card.tscn")
+var deck = []
 var cards_drawn = []
 
 
@@ -21,6 +22,24 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+const SUITS = ["Hearts", "Clubs", "Spades", "Diamonds"]
+const RANKS = [
+    "Ace", "2", "3", "4", "5", "6", "7",
+    "8", "9", "10", "Jack", "Queen", "King"
+]
+
+func create_deck():
+	deck.clear()
+
+	for suit in SUITS:
+		for rank in RANKS:
+			var card = {
+                "suit": suit,
+                "rank": rank,
+                "modifiers": []
+            }
+			deck.append(card)
 
 
 func draw_card():

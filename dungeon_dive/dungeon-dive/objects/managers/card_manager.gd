@@ -9,9 +9,12 @@ var screen_size
 var card_being_dragged = null
 var is_hovered_on_card = false
 
+var board_cards: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	board_cards.resize(25)
+	board_cards.fill(null)
 	screen_size = get_viewport_rect().size
 	$"../InputManager".connect("left_mouse_button_released", on_left_click_released)
 
@@ -37,6 +40,9 @@ func finish_drag():
 		card_being_dragged.position = card_slot_found.position
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		card_slot_found.is_card_in_slot = true
+		var tile_index = int(card_slot_found.name.trim_prefix("Tile"))
+		board_cards[tile_index] = card_being_dragged
+		$"../ScoreManager".score_board(board_cards)
 	else:
 		card_being_dragged.position = $"../Deck".position
 

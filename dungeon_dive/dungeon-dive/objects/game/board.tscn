@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://8v5ci565nruo" path="res://objects/game/deck.tscn" id="2_u0ej0"]
 [ext_resource type="PackedScene" uid="uid://cin8d2lvvcuje" path="res://objects/game/tile.tscn" id="3_8ht1c"]
 [ext_resource type="Script" uid="uid://bp134w5sq1u55" path="res://objects/managers/input_manager.gd" id="4_u0ej0"]
+[ext_resource type="Script" uid="uid://bfn1c2n6lu5hg" path="res://objects/managers/run_rewards.gd" id="5_u0ej0"]
 
 [node name="Board" type="Node2D" unique_id=590929236]
 
@@ -22,3 +23,6 @@ position = Vector2(394, 118)
 
 [node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
 script = ExtResource("4_u0ej0")
+
+[node name="RunRewards" type="Node2D" parent="." unique_id=337918548]
+script = ExtResource("5_u0ej0")
