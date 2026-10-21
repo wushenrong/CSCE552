@@ -5,11 +5,19 @@ signal reward_chosen
 signal closed
 
 
+@export var board: Node2D
+
+
 # Reward IDs on RewardButton0-2, in button order
 var offered_ids := []
 
 
-func _on_wave_cleared(wave: int, owned_rewards: Array) -> void:
+func _ready() -> void:
+	if board:
+		board.on_wave_cleared = on_wave_cleared
+
+
+func on_wave_cleared(wave: int, owned_rewards: Array) -> void:
 	var owned_ids = owned_rewards.map(func(reward): return reward["id"])
 	var available_ids = RewardData.REWARDS.keys().filter(func(reward_id): return not owned_ids.has(reward_id))
 	available_ids.shuffle()

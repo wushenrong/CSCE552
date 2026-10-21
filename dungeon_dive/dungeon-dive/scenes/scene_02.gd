@@ -5,8 +5,8 @@ extends CanvasLayer
 @export var sfx_volume_bus_name := "SoundEffects"
 
 
-var _music_volume_bus := AudioServer.get_bus_index(music_volume_bus_name)
-var _sfx_volume_bus := AudioServer.get_bus_index(sfx_volume_bus_name)
+@onready var _music_volume_bus := AudioServer.get_bus_index(music_volume_bus_name)
+@onready var _sfx_volume_bus := AudioServer.get_bus_index(sfx_volume_bus_name)
 
 
 # Called when the node enters the scene tree for the first time.

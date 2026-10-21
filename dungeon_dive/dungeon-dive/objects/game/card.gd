@@ -15,7 +15,7 @@ var tile_index := -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_parent().connect_card_signals(self)
+	add_to_group("cards")
 
 
 func set_card_data(new_rank: int, new_suit: String, new_modifiers := []) -> void:
@@ -24,9 +24,8 @@ func set_card_data(new_rank: int, new_suit: String, new_modifiers := []) -> void
 	modifiers = new_modifiers
 
 	# Card art is numbered Ace = 1 through King = 13, e.g. hearts/heart_0001.png
-	var suit_folder = suit.to_lower()
 	var art_number = 1 if rank == ACE_RANK else rank
-	$CardImage.texture = load(CARD_ART_PATH % [suit_folder, suit_folder.trim_suffix("s"), art_number])
+	$CardImage.texture = load(CARD_ART_PATH % [suit, suit.trim_suffix("s"), art_number])
 
 
 func _on_area_2d_mouse_entered() -> void:

@@ -1,17 +1,15 @@
 extends Node
 
 
-var settings_scene: Node
-var rules_scene: Node
 var current_scene: Node = null
+
+
+@onready var settings_scene := preload("res://scenes/scene_02.tscn").instantiate()
 
 
 func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(-1)
-
-	settings_scene = preload("res://scenes/scene_02.tscn").instantiate()
-	rules_scene = preload("res://scenes/scene_07.tscn").instantiate()
 
 
 func _notification(what: int) -> void:

@@ -21,6 +21,7 @@ PlayerSettings="*uid://da2yptx83gbov"
 SceneManager="*uid://xnwgfpmey1p5"
 RewardData="*uid://cdbrfvvh4ls5v"
 BossData="*uid://batwg4b3nkst"
+MusicPlayer="*uid://dpc4qbtrp2kgh"
 
 [display]
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btykbdipidsc4"]
 
 [ext_resource type="Script" uid="uid://dugm48r8kqj18" path="res://objects/managers/card_manager.gd" id="1_bofx1"]
+[ext_resource type="Script" uid="uid://c7fy2b007vcu" path="res://objects/game/board.gd" id="1_omwoh"]
 [ext_resource type="PackedScene" uid="uid://8v5ci565nruo" path="res://objects/game/deck.tscn" id="2_u0ej0"]
 [ext_resource type="PackedScene" uid="uid://cin8d2lvvcuje" path="res://objects/game/tile.tscn" id="3_8ht1c"]
 [ext_resource type="Script" uid="uid://jpckpj2o4e2v" path="res://objects/managers/score_manager.gd" id="3_u0ej0"]
@@ -23,6 +24,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="Board" type="Node2D" unique_id=590929236]
+script = ExtResource("1_omwoh")
 
 [node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
 script = ExtResource("1_bofx1")
@@ -174,7 +176,6 @@ vertical_alignment = 1
 bus = &"SoundEffects"
 
 [node name="HandPanel" parent="." unique_id=1454739544 instance=ExtResource("8_tw3k8")]
-anchors_preset = 0
 
 [node name="Boss" parent="." unique_id=1130748521 instance=ExtResource("6_so14g")]
 
@@ -316,3 +317,5 @@ position = Vector2(1180, 850)
 [connection signal="gui_input" from="ScoreManager/ColumnScore4" to="ScoreManager" method="_on_line_label_gui_input" binds= [9]]
 [connection signal="mouse_entered" from="ScoreManager/ColumnScore4" to="HandPanel" method="hover_line" binds= [9]]
 [connection signal="mouse_exited" from="ScoreManager/ColumnScore4" to="HandPanel" method="end_hover"]
+[connection signal="wave_cleared" from="WaveManager" to="." method="_on_wave_manager_wave_cleared"]
+[connection signal="wave_failed" from="WaveManager" to="." method="_on_wave_manager_wave_failed"]

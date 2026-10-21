@@ -1,7 +1,15 @@
 extends CanvasLayer
 
 
-func _on_wave_failed(wave: int, owned_rewards: Array) -> void:
+@export var board: Node2D
+
+
+func _ready() -> void:
+	if board:
+		board.on_wave_failed = on_wave_failed
+
+
+func on_wave_failed(wave: int, owned_rewards: Array) -> void:
 	var reward_names = owned_rewards.map(func(reward): return reward["name"])
 
 	%DefeatLabel.text = "You have been defeated on Wave %d" % wave
@@ -12,4 +20,5 @@ func _on_wave_failed(wave: int, owned_rewards: Array) -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
+	get_tree().paused = false
 	SceneManager.goto_scene("res://scenes/scene_01.tscn")

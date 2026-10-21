@@ -223,6 +223,7 @@ static func format_mult(mult: float) -> String:
 
 func evaluate_hand(line: Array) -> Hand:
 	var cards = line.filter(func(card): return card != null)
+
 	if cards.is_empty():
 		return Hand.NONE
 
