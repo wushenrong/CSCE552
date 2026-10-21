@@ -1,27 +1,10 @@
 extends Node2D
 
 
+const CARD_SCENE = preload("res://objects/game/card.tscn")
+
+
 const TOP_CARD_COUNT = 1
-
-
-var card_scene = preload("res://objects/game/card.tscn")
-var deck = []
-var cards_drawn = []
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	for i in range(TOP_CARD_COUNT):
-		var new_card = card_scene.instantiate()
-		$"../CardManager".add_child(new_card)
-		new_card.name = "Card"
-		new_card.position = $"../Deck".position
-		add_to_cards_drawn(new_card)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 const SUITS = ["Hearts", "Clubs", "Spades", "Diamonds"]
@@ -29,6 +12,20 @@ const RANKS = [
     "Ace", "2", "3", "4", "5", "6", "7",
     "8", "9", "10", "Jack", "Queen", "King"
 ]
+
+
+var deck := []
+var cards_drawn := []
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	for i in range(TOP_CARD_COUNT):
+		var new_card = CARD_SCENE.instantiate()
+		$"../CardManager".add_child(new_card)
+		new_card.name = "Card"
+		new_card.position = $"../Deck".position
+		add_to_cards_drawn(new_card)
 
 
 func create_deck():

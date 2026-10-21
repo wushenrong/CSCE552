@@ -4,9 +4,9 @@ extends Node2D
 signal hover_on
 signal hover_off
 
-var rank: int = 0
-var suit: String = ""
-var modifiers: Array = []
+var rank := 0
+var suit := ""
+var modifiers := []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

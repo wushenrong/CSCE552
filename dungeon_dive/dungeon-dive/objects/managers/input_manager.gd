@@ -9,8 +9,8 @@ const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_DECK = 4
 
 
-var card_manager_reference
-var deck_reference
+var card_manager_reference: Node2D
+var deck_reference: Node2D
 
 
 func _ready() -> void:

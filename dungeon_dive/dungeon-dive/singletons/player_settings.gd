@@ -3,10 +3,10 @@ extends Node
 const SETTINGS_FILE = "user://settings.cfg"
 const SETTINGS_KEY = "settings"
 
-var config = ConfigFile.new()
+var config := ConfigFile.new()
 
-@export var music_volume = 100
-@export var sfx_volume = 100
+@export var music_volume := 100
+@export var sfx_volume := 100
 
 func _ready() -> void:
 	var error = config.load(SETTINGS_FILE)

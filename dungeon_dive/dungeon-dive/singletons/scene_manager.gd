@@ -1,8 +1,8 @@
 extends Node
 
 
-var settings_scene
-var current_scene = null
+var settings_scene: Node
+var current_scene: Node = null
 
 
 func _ready():
@@ -18,11 +18,11 @@ func _notification(what: int) -> void:
 		get_tree().quit()
 
 
-func goto_scene(path):
+func goto_scene(path: String):
 	_deferred_goto_scene.call_deferred(path)
 
 
-func _deferred_goto_scene(path):
+func _deferred_goto_scene(path: String):
 	current_scene.free()
 
 	var s = ResourceLoader.load(path)

@@ -3,7 +3,7 @@ extends Node2D
 signal rewards_changed
 
 # Rewards collected during the current run.
-var player_rewards: Array = []
+var player_rewards := []
 
 func add_reward_by_id(reward_id: String) -> void:
 	var reward = RewardData.get_reward(reward_id)

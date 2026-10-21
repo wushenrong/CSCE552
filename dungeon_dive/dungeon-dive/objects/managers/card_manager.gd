@@ -5,11 +5,11 @@ const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_TILE = 2
 
 
-var screen_size
-var card_being_dragged = null
-var is_hovered_on_card = false
+var screen_size: Vector2
+var card_being_dragged: Node2D = null
+var is_hovered_on_card := false
 
-var board_cards: Array = []
+var board_cards := []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
