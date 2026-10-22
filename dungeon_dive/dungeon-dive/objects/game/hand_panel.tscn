@@ -1,0 +1,328 @@
+[gd_scene format=3 uid="uid://ckahcebra33c2"]
+
+[ext_resource type="Script" uid="uid://d25wvqey83joa" path="res://objects/game/hand_panel.gd" id="1_fhdo5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3s7l6"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.96862745, 0.94509805, 0.8627451, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84box"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.85, 0.25, 0.25, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="HandPanel" type="Control" unique_id=1454739544]
+layout_mode = 3
+mouse_filter = 2
+script = ExtResource("1_fhdo5")
+
+[node name="ScoringButton" type="Button" parent="." unique_id=469552043]
+unique_name_in_owner = true
+offset_left = 110.0
+offset_right = 260.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+text = "Scoring"
+
+[node name="ScoringPanel" type="PanelContainer" parent="." unique_id=1800183133]
+unique_name_in_owner = true
+visible = false
+offset_left = 20.0
+offset_top = 70.0
+offset_right = 560.0
+offset_bottom = 740.0
+mouse_filter = 2
+
+[node name="HandContainer" type="VBoxContainer" parent="ScoringPanel" unique_id=1947606830]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="LineLabel" type="Label" parent="ScoringPanel/HandContainer" unique_id=790143239]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "No line selected"
+horizontal_alignment = 1
+
+[node name="HandNameLabel" type="Label" parent="ScoringPanel/HandContainer" unique_id=47522157]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "-"
+horizontal_alignment = 1
+
+[node name="ScoreContainer" type="HBoxContainer" parent="ScoringPanel/HandContainer" unique_id=1531746357]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PointsBox" type="PanelContainer" parent="ScoringPanel/HandContainer/ScoreContainer" unique_id=157986718]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3s7l6")
+
+[node name="PointsLabel" type="Label" parent="ScoringPanel/HandContainer/ScoreContainer/PointsBox" unique_id=981466410]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.019607844, 0.14509805, 0.21176471, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+
+[node name="TimesLabel" type="Label" parent="ScoringPanel/HandContainer/ScoreContainer" unique_id=1382867779]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "x"
+
+[node name="MultBox" type="PanelContainer" parent="ScoringPanel/HandContainer/ScoreContainer" unique_id=690503584]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_84box")
+
+[node name="MultLabel" type="Label" parent="ScoringPanel/HandContainer/ScoreContainer/MultBox" unique_id=1530711738]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "1"
+horizontal_alignment = 1
+
+[node name="LineScoreLabel" type="Label" parent="ScoringPanel/HandContainer/ScoreContainer" unique_id=1768279928]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "= 0"
+
+[node name="BreakdownLabel" type="Label" parent="ScoringPanel/HandContainer" unique_id=1773159760]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Hover the score at the end of a row or column to see how it was scored."
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="ScoringPanel/HandContainer" unique_id=818808153]
+layout_mode = 2
+
+[node name="PointSystemLabel" type="Label" parent="ScoringPanel/HandContainer" unique_id=404435552]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "American Point System"
+horizontal_alignment = 1
+
+[node name="HandTable" type="GridContainer" parent="ScoringPanel/HandContainer" unique_id=880261337]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="RoyalFlushName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=325862577]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Royal Flush"
+
+[node name="RoyalFlushPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=954679967]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 2
+
+[node name="RoyalFlushCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1464712397]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="StraightFlushName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1416138309]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Straight Flush"
+
+[node name="StraightFlushPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1362792357]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "75"
+horizontal_alignment = 2
+
+[node name="StraightFlushCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1331773745]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="FourOfAKindName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=2043272861]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Four of a Kind"
+
+[node name="FourOfAKindPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1739298644]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "50"
+horizontal_alignment = 2
+
+[node name="FourOfAKindCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1496456980]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="FullHouseName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1207584569]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Full House"
+
+[node name="FullHousePoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=165951856]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "25"
+horizontal_alignment = 2
+
+[node name="FullHouseCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1361300309]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="FlushName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=346436586]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Flush"
+
+[node name="FlushPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1609261587]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 2
+
+[node name="FlushCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1615411562]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="StraightName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1332671405]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Straight"
+
+[node name="StraightPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=2098060144]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "15"
+horizontal_alignment = 2
+
+[node name="StraightCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1419837697]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="ThreeOfAKindName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=342442295]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Three of a Kind"
+
+[node name="ThreeOfAKindPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1942105708]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "10"
+horizontal_alignment = 2
+
+[node name="ThreeOfAKindCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=799937640]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="TwoPairName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=232122976]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Two Pair"
+
+[node name="TwoPairPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1483790849]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "5"
+horizontal_alignment = 2
+
+[node name="TwoPairCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=403098751]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="PairName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=910598554]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Pair"
+
+[node name="PairPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1615708723]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "2"
+horizontal_alignment = 2
+
+[node name="PairCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1345072737]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="HighCardName" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1974893388]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "High Card"
+
+[node name="HighCardPoints" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=2125324389]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+
+[node name="HighCardCount" type="Label" parent="ScoringPanel/HandContainer/HandTable" unique_id=1809337298]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[connection signal="toggled" from="ScoringButton" to="." method="_on_scoring_button_toggled"]

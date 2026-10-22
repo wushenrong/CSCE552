@@ -1,0 +1,277 @@
+[gd_scene format=3 uid="uid://dyrod8j7wlwgv"]
+
+[ext_resource type="Script" uid="uid://c2403t81tpsem" path="res://scenes/scene_07.gd" id="1_svg7u"]
+
+[node name="RulesMenu" type="CanvasLayer" unique_id=264742200]
+process_mode = 3
+layer = 2
+script = ExtResource("1_svg7u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=932083305]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27022192, 0.27022192, 0.2702219, 1)
+
+[node name="RulesLabel" type="Label" parent="." unique_id=181158090]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Rules"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=682166351]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = 150.0
+offset_right = -360.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="RulesContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=984734545]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="HowToPlayLabel" type="Label" parent="ScrollContainer/RulesContainer" unique_id=781918264]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Drag the card on the deck onto an empty tile, then click the deck to draw the next card. Each of the 5 rows and 5 columns is scored as a poker hand, using the American point system below. Fill all 25 tiles to end the wave: reach the point goal to choose a reward, or the run ends."
+autowrap_mode = 3
+
+[node name="PointSystemLabel" type="Label" parent="ScrollContainer/RulesContainer" unique_id=727845741]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "American Point System"
+horizontal_alignment = 1
+
+[node name="HandTable" type="GridContainer" parent="ScrollContainer/RulesContainer" unique_id=24986305]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="RoyalFlushName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=136025293]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Royal Flush"
+
+[node name="RoyalFlushDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1652666097]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "10, J, Q, K, A all of one suit"
+
+[node name="RoyalFlushPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=284592815]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "100"
+horizontal_alignment = 2
+
+[node name="StraightFlushName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=2081552021]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Straight Flush"
+
+[node name="StraightFlushDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=749923613]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Five cards in a row, all of one suit"
+
+[node name="StraightFlushPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=775837222]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "75"
+horizontal_alignment = 2
+
+[node name="FourOfAKindName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=161520146]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Four of a Kind"
+
+[node name="FourOfAKindDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1885961261]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Four cards of the same rank"
+
+[node name="FourOfAKindPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1064810287]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "50"
+horizontal_alignment = 2
+
+[node name="FullHouseName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=655750959]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Full House"
+
+[node name="FullHouseDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1136170163]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Three of a kind plus a pair"
+
+[node name="FullHousePoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=541261709]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "25"
+horizontal_alignment = 2
+
+[node name="FlushName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=98238276]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Flush"
+
+[node name="FlushDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=737788012]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Five cards of the same suit"
+
+[node name="FlushPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1151580860]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "20"
+horizontal_alignment = 2
+
+[node name="StraightName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=667279547]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Straight"
+
+[node name="StraightDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=39036024]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Five cards in a row, Ace high or low"
+
+[node name="StraightPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1443865486]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "15"
+horizontal_alignment = 2
+
+[node name="ThreeOfAKindName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1327521204]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Three of a Kind"
+
+[node name="ThreeOfAKindDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1618383393]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Three cards of the same rank"
+
+[node name="ThreeOfAKindPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1953285344]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "10"
+horizontal_alignment = 2
+
+[node name="TwoPairName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1049750914]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Two Pair"
+
+[node name="TwoPairDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1915824121]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Two different pairs"
+
+[node name="TwoPairPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=716490980]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "5"
+horizontal_alignment = 2
+
+[node name="PairName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1702749775]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Pair"
+
+[node name="PairDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1182877534]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Two cards of the same rank"
+
+[node name="PairPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1883517390]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "2"
+horizontal_alignment = 2
+
+[node name="HighCardName" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=738412374]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "High Card"
+
+[node name="HighCardDescription" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=1122210182]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "No matching cards"
+
+[node name="HighCardPoints" type="Label" parent="ScrollContainer/RulesContainer/HandTable" unique_id=779974827]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 2
+
+[node name="ScoringNotesLabel" type="Label" parent="ScrollContainer/RulesContainer" unique_id=95479141]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Pairs, two pair, three and four of a kind score as soon as their cards are placed. Straights and flushes need all five cards in the line.
+
+Each line scores points x mult. Rewards add points or mult to hands of a Pair or better, and each wave's boss can take them away. While playing, click Scoring (or a row or column score) to open the scoring panel with this table. Hover the score at the end of a row or column to see that line as points x mult."
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="." unique_id=1039816927]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -170.0
+offset_right = 75.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -1,3 +1,65 @@
 [gd_scene format=3 uid="uid://c8sw380gbegr"]
 
-[node name="RewardsMenu" type="Node" unique_id=1630712063]
+[ext_resource type="Script" uid="uid://bjrmyuo2ge0di" path="res://scenes/scene_05.gd" id="1_7uvws"]
+
+[node name="RewardsMenu" type="CanvasLayer" unique_id=1630712063]
+process_mode = 2
+script = ExtResource("1_7uvws")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=220943809]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27058825, 0.27058825, 0.27058825, 0.85)
+
+[node name="WaveClearedLabel" type="Label" parent="." unique_id=2109392190]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Wave 1 Cleared! Choose a Reward"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RewardContainer" type="HBoxContainer" parent="." unique_id=2064175819]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -125.0
+offset_right = 500.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="RewardButton0" type="Button" parent="RewardContainer" unique_id=1932946463]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3
+
+[node name="RewardButton1" type="Button" parent="RewardContainer" unique_id=809469160]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3
+
+[node name="RewardButton2" type="Button" parent="RewardContainer" unique_id=2098279533]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3
+
+[connection signal="pressed" from="RewardContainer/RewardButton0" to="." method="_on_reward_button_pressed" binds= [0]]
+[connection signal="pressed" from="RewardContainer/RewardButton1" to="." method="_on_reward_button_pressed" binds= [1]]
+[connection signal="pressed" from="RewardContainer/RewardButton2" to="." method="_on_reward_button_pressed" binds= [2]]
