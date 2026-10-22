@@ -36,12 +36,6 @@ func get_rewards() -> Array:
 	return player_rewards.duplicate(true)
 
 
-## ScoreManager change, replace the following in apply_mod_to_points AND apply_mod_to_mult:
-## var active_modifiers = $"../RunRewards".active_modifiers
-## to
-## var active_modifiers = $"../RunRewards".player_rewards
-
-
 ##func _test_rewards() -> void: () ✅
 ##	clear_rewards()
 

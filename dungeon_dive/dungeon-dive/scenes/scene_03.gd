@@ -6,6 +6,10 @@ func _on_pause_button_pressed() -> void:
 	show()
 
 
+func _on_rules_button_pressed() -> void:
+	SceneManager.show_rules()
+
+
 func _on_settings_button_pressed() -> void:
 	SceneManager.show_settings()
 

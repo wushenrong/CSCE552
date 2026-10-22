@@ -3,7 +3,70 @@
 [ext_resource type="Script" uid="uid://cd502pbijkw2l" path="res://scenes/scene_06.gd" id="1_05vqt"]
 
 [node name="LoseMenu" type="CanvasLayer" unique_id=1082968329]
+process_mode = 2
 script = ExtResource("1_05vqt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=609725678]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=1025489876]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 250.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 96
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DefeatLabel" type="Label" parent="." unique_id=217788941]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 260.0
+offset_bottom = 320.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "You have been defeated on Wave 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighestWaveLabel" type="Label" parent="." unique_id=596512147]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 320.0
+offset_bottom = 380.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Highest Wave Achieved: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RewardsLabel" type="Label" parent="." unique_id=337954892]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -60.0
+offset_right = 500.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Rewards: None"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=1580290197]
 anchors_preset = 7

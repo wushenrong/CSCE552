@@ -2,6 +2,7 @@ extends Node
 
 
 var settings_scene: Node
+var rules_scene: Node
 var current_scene: Node = null
 
 
@@ -10,11 +11,13 @@ func _ready():
 	current_scene = root.get_child(-1)
 
 	settings_scene = preload("res://scenes/scene_02.tscn").instantiate()
+	rules_scene = preload("res://scenes/scene_07.tscn").instantiate()
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		_deferred_delete_settings.call_deferred()
+		_deferred_delete_rules.call_deferred()
 		get_tree().quit()
 
 
@@ -23,6 +26,8 @@ func goto_scene(path: String):
 
 
 func _deferred_goto_scene(path: String):
+	# Menus pause the game tree, a new scene always starts unpaused
+	get_tree().paused = false
 	current_scene.free()
 
 	var s = ResourceLoader.load(path)
@@ -41,3 +46,12 @@ func _deferred_delete_settings():
 func show_settings():
 	if not settings_scene.is_inside_tree():
 		get_tree().root.add_child(settings_scene)
+
+
+func _deferred_delete_rules():
+	rules_scene.free()
+
+
+func show_rules():
+	if not rules_scene.is_inside_tree():
+		get_tree().root.add_child(rules_scene)

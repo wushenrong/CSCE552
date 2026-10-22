@@ -1,3 +1,35 @@
 [gd_scene format=3 uid="uid://dyvu5qejybhi6"]
 
+[ext_resource type="Script" uid="uid://du6gxbmwks3i8" path="res://objects/game/boss.gd" id="1_aadoi"]
+
 [node name="Boss" type="Node" unique_id=1130748521]
+script = ExtResource("1_aadoi")
+
+[node name="BossPanel" type="PanelContainer" parent="." unique_id=739352461]
+offset_left = 1520.0
+offset_top = 200.0
+offset_right = 1920.0
+offset_bottom = 400.0
+
+[node name="BossContainer" type="VBoxContainer" parent="BossPanel" unique_id=1901451437]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BossLabel" type="Label" parent="BossPanel/BossContainer" unique_id=804681161]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Boss"
+horizontal_alignment = 1
+
+[node name="BossNameLabel" type="Label" parent="BossPanel/BossContainer" unique_id=351609181]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="BossDescriptionLabel" type="Label" parent="BossPanel/BossContainer" unique_id=14435131]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+autowrap_mode = 3

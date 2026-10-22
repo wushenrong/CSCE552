@@ -41,12 +41,29 @@ func finish_drag():
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		card_slot_found.is_card_in_slot = true
 		var tile_index = int(card_slot_found.name.trim_prefix("Tile"))
+		card_being_dragged.tile_index = tile_index
 		board_cards[tile_index] = card_being_dragged
-		$"../ScoreManager".score_board(board_cards)
+
+		var total = $"../ScoreManager".score_board(board_cards)
+
+		if not board_cards.has(null):
+			$"../WaveManager".end_wave(total)
 	else:
 		card_being_dragged.position = $"../Deck".position
 
 	card_being_dragged = null
+
+
+func clear_board():
+	for card in board_cards:
+		if card:
+			card.queue_free()
+
+	board_cards.fill(null)
+	is_hovered_on_card = false
+
+	for tile in get_tree().get_nodes_in_group("tiles"):
+		tile.is_card_in_slot = false
 
 
 func connect_card_signals(card):
