@@ -12,15 +12,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.27058825, 0.27058825, 0.27058825, 1)
+color = Color(0.27058825, 0.27058825, 0.27058825, 0.78431374)
 
 [node name="PauseLabel" type="Label" parent="." unique_id=1129457178]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 100.0
-offset_bottom = 200.0
+offset_bottom = 275.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 128
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1

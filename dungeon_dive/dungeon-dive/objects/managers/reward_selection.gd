@@ -25,6 +25,7 @@ func generate_choices() -> void:
 
 	choices_generated.emit()
 
+
 func select_reward(reward_id: String) -> void:
 	for reward in available_choices:
 		if reward["id"] == reward_id:

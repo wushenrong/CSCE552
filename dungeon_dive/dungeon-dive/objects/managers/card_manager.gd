@@ -10,8 +10,6 @@ const COLLISION_MASK_TILE = 2
 
 
 @export var input_manager: Node2D
-@export var deck: Node2D
-@export var card_sfx: AudioStreamPlayer2D
 
 
 var screen_size: Vector2
@@ -21,20 +19,27 @@ var is_hovered_on_card := false
 var board_cards := []
 
 
+@onready var deck := $Deck
+@onready var card_sfx := $CardSFX
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	board_cards.resize(25)
 	board_cards.fill(null)
 	screen_size = get_viewport_rect().size
 	input_manager.left_mouse_button_released.connect(on_left_click_released)
-	deck.add_card = add_card
+	deck.add_card_to_scene = add_card
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if card_being_dragged:
 		var mouse_position = get_global_mouse_position()
-		card_being_dragged.position = Vector2(clamp(mouse_position.x, 0, screen_size.x), clamp(mouse_position.y, 0, screen_size.y))
+		card_being_dragged.position = Vector2(
+			clamp(mouse_position.x, 0, screen_size.x),
+			clamp(mouse_position.y, 0, screen_size.y)
+		)
 
 
 func start_drag(card):
@@ -65,13 +70,13 @@ func finish_drag():
 
 
 func add_card(card):
-	add_child(card)
-
 	if not card.hovered_over.is_connected(on_hovered_over_card):
 		card.hovered_over.connect(on_hovered_over_card)
 
 	if not card.hovered_off.is_connected(on_hovered_off_card):
 		card.hovered_off.connect(on_hovered_off_card)
+
+	add_child(card)
 
 
 func on_left_click_released():

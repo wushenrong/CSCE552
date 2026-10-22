@@ -4,16 +4,38 @@
 [ext_resource type="PackedScene" uid="uid://cvoptdt8h8f6j" path="res://scenes/scene_03.tscn" id="2_fd2wn"]
 [ext_resource type="PackedScene" uid="uid://c8sw380gbegr" path="res://scenes/scene_05.tscn" id="2_vxajl"]
 [ext_resource type="PackedScene" uid="uid://yep0duijg1pc" path="res://scenes/scene_06.tscn" id="3_7atwa"]
+[ext_resource type="Script" uid="uid://d2nao128dc73i" path="res://objects/game/hud.gd" id="3_fjhmf"]
 
 [node name="GameBoard" type="Node2D" unique_id=969703328]
 
 [node name="Board" parent="." unique_id=590929236 instance=ExtResource("1_7atwa")]
 
-[node name="PauseButton" type="Button" parent="." unique_id=571156783]
-offset_right = 101.0
-offset_bottom = 53.0
+[node name="HUD" type="CanvasLayer" parent="." unique_id=280739671 node_paths=PackedStringArray("board")]
+script = ExtResource("3_fjhmf")
+board = NodePath("../Board")
+
+[node name="PauseButton" type="Button" parent="HUD" unique_id=571156783]
+offset_left = 75.0
+offset_top = 50.0
+offset_right = 195.0
+offset_bottom = 114.0
 theme_override_font_sizes/font_size = 32
 text = "Pause"
+
+[node name="ScorePanel" type="PanelContainer" parent="HUD" unique_id=1233321350]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 64.0
+grow_horizontal = 0
+
+[node name="ScoreLabel" type="Label" parent="HUD/ScorePanel" unique_id=2114366090]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+vertical_alignment = 1
 
 [node name="RewardsMenu" parent="." unique_id=1630712063 instance=ExtResource("2_vxajl")]
 
@@ -23,4 +45,4 @@ visible = false
 [node name="PauseMenu" parent="." unique_id=2125591716 instance=ExtResource("2_fd2wn")]
 visible = false
 
-[connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="HUD/PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]

@@ -5,8 +5,8 @@ const SETTINGS_FILE = "user://settings.cfg"
 const SETTINGS_KEY = "settings"
 
 
-@export var music_volume := 1.0
-@export var sfx_volume := 1.0
+@export_range(0.0, 1.0, 0.01) var music_volume := 1.0
+@export_range(0.0, 1.0, 0.01) var sfx_volume := 1.0
 
 
 var _config := ConfigFile.new()

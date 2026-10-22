@@ -7,7 +7,10 @@ static func get_highest_z_index_collider(areas: Array[Dictionary]) -> Area2D:
 	for area in areas:
 		var current_collider = area.collider
 
-		if current_collider.get_parent().z_index > highest_z_collider.get_parent().z_index:
+		if (
+			current_collider.get_parent().z_index
+			> highest_z_collider.get_parent().z_index
+		):
 			highest_z_collider = current_collider
 
 	return highest_z_collider

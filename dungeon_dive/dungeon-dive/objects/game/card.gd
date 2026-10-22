@@ -20,9 +20,9 @@ func set_card_type(card_rank: int, card_suit: String, card_modifiers: Array):
 	suit = card_suit
 	modifiers = card_modifiers
 
-	var card_texture = [suit, suit.left(-1), rank]
-
-	$CardImage.texture = load("res://assets/card_art/%s/%s_%04d.png" % card_texture)
+	$CardImage.texture = load(
+		"res://assets/card_art/%s/%s_%04d.png" % [suit, suit.left(-1), rank]
+	)
 
 
 func _on_area_2d_mouse_entered() -> void:

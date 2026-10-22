@@ -1,6 +1,9 @@
 extends Node2D
 
 
+signal on_board_scored(score: int)
+
+
 enum Hand {
 	NONE,
 	HIGH_CARD,
@@ -38,10 +41,10 @@ const HAND_POINTS = {
 }
 
 
-@export var score_sfx: AudioStreamPlayer2D
+@onready var score_sfx := $ScoreSFX
 
 
-func score_board(board: Array) -> int:
+func score_board(board: Array):
 	var total = 0
 	var pitch = 1.0
 
@@ -55,9 +58,8 @@ func score_board(board: Array) -> int:
 		pitch += 0.2
 
 	play_score_sfx(CoinsFallingSFX, 1.0)
-	%ScoreLabel.text = "Score: %d" % total
 
-	return total
+	on_board_scored.emit(total)
 
 
 func score_line(cards: Array) -> int:

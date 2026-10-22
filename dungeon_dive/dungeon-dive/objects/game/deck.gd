@@ -5,22 +5,19 @@ const Card = preload("res://objects/game/card.tscn")
 
 
 const SUITS = ["hearts", "clubs", "spades", "diamonds"]
-const RANKS = [
-	1, 2, 3, 4, 5, 6, 7,
-	8, 9, 10, 11, 12, 13
-]
+const RANKS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+
+var add_card_to_scene: Callable
 
 
 var deck := []
 var cards_drawn := []
 
 
-var add_card: Callable
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# # TODO: Load deck from save
+	# TODO: Load deck from save
 	create_deck()
 
 
@@ -48,7 +45,7 @@ func draw_card():
 	card_obj.position = position
 	card_obj.set_card_type(card.rank, card.suit, card.modifiers)
 
-	add_card.call(card_obj)
+	add_card_to_scene.call(card_obj)
 
 	deck.erase(card)
 	cards_drawn.append(card)

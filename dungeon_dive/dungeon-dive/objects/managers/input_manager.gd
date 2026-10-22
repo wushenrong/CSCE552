@@ -33,9 +33,8 @@ func raycast_at_cursor():
 
 	if result:
 		var collider = ManagerUtilities.get_highest_z_index_collider(result)
-		var result_collision_mask = collider.collision_mask
 
-		match result_collision_mask:
+		match collider.collision_mask:
 			COLLISION_MASK_CARD:
 				var card_found = collider.get_parent()
 
