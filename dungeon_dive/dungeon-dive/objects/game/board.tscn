@@ -13,43 +13,32 @@
 [node name="RewardSelection" type="Node" parent="." unique_id=1518282114]
 script = ExtResource("1_gwrxt")
 
-[node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
+[node name="CardManager" type="Node2D" parent="." unique_id=1798775084 node_paths=PackedStringArray("input_manager", "deck", "card_sfx")]
 script = ExtResource("1_bofx1")
+input_manager = NodePath("../InputManager")
+deck = NodePath("Deck")
+card_sfx = NodePath("CardSFX")
+
+[node name="Deck" parent="CardManager" unique_id=1792483066 instance=ExtResource("2_u0ej0")]
+z_index = -2
+position = Vector2(200, 850)
 
 [node name="CardSFX" type="AudioStreamPlayer2D" parent="CardManager" unique_id=918145059]
 bus = &"SoundEffects"
 
-[node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
+[node name="InputManager" type="Node2D" parent="." unique_id=1273779281 node_paths=PackedStringArray("card_manager")]
 script = ExtResource("4_u0ej0")
+card_manager = NodePath("../CardManager")
 
 [node name="RunRewards" type="Node2D" parent="." unique_id=337918548]
 script = ExtResource("5_u0ej0")
 
-[node name="ScoreManager" type="Node2D" parent="." unique_id=1227665085]
+[node name="ScoreManager" type="Node2D" parent="." unique_id=1227665085 node_paths=PackedStringArray("score_sfx")]
 position = Vector2(1920, 0)
 script = ExtResource("3_u0ej0")
-
-[node name="ScorePanel" type="PanelContainer" parent="ScoreManager" unique_id=1233321350]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -250.0
-offset_bottom = 53.0
-grow_horizontal = 0
-
-[node name="ScoreLabel" type="Label" parent="ScoreManager/ScorePanel" unique_id=2114366090]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Score: 0"
-horizontal_alignment = 2
-vertical_alignment = 1
+score_sfx = NodePath("ScoreSFX")
 
 [node name="ScoreSFX" type="AudioStreamPlayer2D" parent="ScoreManager" unique_id=1382286485]
-
-[node name="Deck" parent="." unique_id=1792483066 instance=ExtResource("2_u0ej0")]
-z_index = -2
-position = Vector2(200, 850)
 
 [node name="Tile0" parent="." unique_id=2095669093 groups=["tiles"] instance=ExtResource("3_8ht1c")]
 position = Vector2(700, 250)
@@ -125,3 +114,21 @@ position = Vector2(1060, 850)
 
 [node name="Tile24" parent="." unique_id=1167535797 groups=["tiles"] instance=ExtResource("3_8ht1c")]
 position = Vector2(1180, 850)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=280739671]
+
+[node name="ScorePanel" type="PanelContainer" parent="HUD" unique_id=1233321350]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_bottom = 53.0
+grow_horizontal = 0
+
+[node name="ScoreLabel" type="Label" parent="HUD/ScorePanel" unique_id=2114366090]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+horizontal_alignment = 2
+vertical_alignment = 1

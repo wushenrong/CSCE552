@@ -1,11 +1,5 @@
 extends Node2D
 
-const SINGLE_COIN_FX = preload("res://assets/sound_effects/single_coin_falling_fx.wav")
-const DOUBLE_COIN_FX = preload("res://assets/sound_effects/double_coins_falling_fx.wav")
-const COINS_FALLING_FX = preload("res://assets/sound_effects/coins_falling_fx.wav")
-
-
-const BOARD_SIZE = 5
 
 enum Hand {
 	NONE,
@@ -20,6 +14,14 @@ enum Hand {
 	STRAIGHT_FLUSH,
 	ROYAL_FLUSH
 }
+
+
+const SingleCoinSFX = preload("res://assets/sound_effects/single_coin_falling_fx.wav")
+const DoubleCoinSFX = preload("res://assets/sound_effects/double_coins_falling_fx.wav")
+const CoinsFallingSFX = preload("res://assets/sound_effects/coins_falling_fx.wav")
+
+
+const BOARD_SIZE = 5
 
 const HAND_POINTS = {
 	Hand.NONE: 0,
@@ -36,20 +38,23 @@ const HAND_POINTS = {
 }
 
 
+@export var score_sfx: AudioStreamPlayer2D
+
+
 func score_board(board: Array) -> int:
 	var total = 0
 	var pitch = 1.0
 
 	for i in BOARD_SIZE:
 		total += score_line(get_row(board, i))
-		play_score_sfx(SINGLE_COIN_FX, pitch)
+		play_score_sfx(SingleCoinSFX, pitch)
 		pitch += 0.2
 
 		total += score_line(get_column(board, i))
-		play_score_sfx(DOUBLE_COIN_FX, pitch)
+		play_score_sfx(DoubleCoinSFX, pitch)
 		pitch += 0.2
 
-	play_score_sfx(COINS_FALLING_FX, 1.0)
+	play_score_sfx(CoinsFallingSFX, 1.0)
 	%ScoreLabel.text = "Score: %d" % total
 
 	return total
@@ -204,7 +209,7 @@ func apply_modifiers_to_mult(cards: Array, _hand: Hand, mult: float) -> float:
 
 
 func play_score_sfx(stream: AudioStream, pitch: float):
-	$ScoreSFX.stream = stream
-	$ScoreSFX.pitch_scale = pitch
-	$ScoreSFX.play()
+	score_sfx.stream = stream
+	score_sfx.pitch_scale = pitch
+	score_sfx.play()
 	await get_tree().create_timer(stream.get_length() + 0.1).timeout

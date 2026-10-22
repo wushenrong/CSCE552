@@ -1,10 +1,7 @@
 extends Node2D
 
 
-const CARD_SCENE = preload("res://objects/game/card.tscn")
-
-
-const TOP_CARD_COUNT = 1
+const Card = preload("res://objects/game/card.tscn")
 
 
 const SUITS = ["hearts", "clubs", "spades", "diamonds"]
@@ -16,6 +13,9 @@ const RANKS = [
 
 var deck := []
 var cards_drawn := []
+
+
+var add_card: Callable
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,13 +43,12 @@ func reset_deck():
 
 func draw_card():
 	var card = deck.pick_random()
-	var card_obj = CARD_SCENE.instantiate()
+	var card_obj = Card.instantiate()
 
-	card_obj.position = $"../Deck".position
+	card_obj.position = position
 	card_obj.set_card_type(card.rank, card.suit, card.modifiers)
 
-	$"../CardManager".add_child(card_obj)
-	$"../CardManager".connect_card_signals(card_obj)
+	add_card.call(card_obj)
 
 	deck.erase(card)
 	cards_drawn.append(card)

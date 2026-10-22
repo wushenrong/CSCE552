@@ -1,12 +1,17 @@
 extends Node2D
 
 
-const CARD_PLACED_SFX = preload("res://assets/sound_effects/card_placed_down_fx.wav")
-const CARD_DRAWN_SFX = preload("res://assets/sound_effects/card_draw_from_deck_fx.wav")
+const CardPlacedSFX = preload("res://assets/sound_effects/card_placed_down_fx.wav")
+const CardDrawnSFX = preload("res://assets/sound_effects/card_draw_from_deck_fx.wav")
 
 
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_TILE = 2
+
+
+@export var input_manager: Node2D
+@export var deck: Node2D
+@export var card_sfx: AudioStreamPlayer2D
 
 
 var screen_size: Vector2
@@ -21,7 +26,8 @@ func _ready() -> void:
 	board_cards.resize(25)
 	board_cards.fill(null)
 	screen_size = get_viewport_rect().size
-	$"../InputManager".connect("left_mouse_button_released", on_left_click_released)
+	input_manager.left_mouse_button_released.connect(on_left_click_released)
+	deck.add_card = add_card
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,7 +40,7 @@ func _process(_delta: float) -> void:
 func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
-	play_card_sfx(CARD_DRAWN_SFX)
+	play_card_sfx(CardDrawnSFX)
 
 
 func finish_drag():
@@ -49,19 +55,23 @@ func finish_drag():
 		var tile_index = int(card_slot_found.name.trim_prefix("Tile"))
 		board_cards[tile_index] = card_being_dragged
 	else:
-		card_being_dragged.position = $"../Deck".position
+		card_being_dragged.position = deck.position
 
 	card_being_dragged = null
 
-	play_card_sfx(CARD_PLACED_SFX)
+	play_card_sfx(CardPlacedSFX)
+
+	#get_tree().call_group("tiles", "reset_tile")
 
 
-func connect_card_signals(card):
-	if not card.hover_on.is_connected(on_hover_on_card):
-		card.connect("hover_on", on_hover_on_card)
+func add_card(card):
+	add_child(card)
 
-	if not card.hover_off.is_connected(on_hover_off_card):
-		card.connect("hover_off", on_hover_off_card)
+	if not card.hovered_over.is_connected(on_hovered_over_card):
+		card.hovered_over.connect(on_hovered_over_card)
+
+	if not card.hovered_off.is_connected(on_hovered_off_card):
+		card.hovered_off.connect(on_hovered_off_card)
 
 
 func on_left_click_released():
@@ -69,13 +79,13 @@ func on_left_click_released():
 		finish_drag()
 
 
-func on_hover_on_card(card):
+func on_hovered_over_card(card):
 	if not is_hovered_on_card:
 		is_hovered_on_card = true
 		highlight_card(card, true)
 
 
-func on_hover_off_card(card):
+func on_hovered_off_card(card):
 	if not card_being_dragged:
 		highlight_card(card, false)
 
@@ -96,9 +106,13 @@ func highlight_card(card, is_being_hovered_over):
 			card.z_index = 1
 
 
+func new_card():
+	deck.draw_card()
+
+
 func play_card_sfx(stream: AudioStream):
-	$CardSFX.stream = stream
-	$CardSFX.play()
+	card_sfx.stream = stream
+	card_sfx.play()
 
 
 func masked_raycast(collision_mask: int):

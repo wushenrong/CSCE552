@@ -1,16 +1,18 @@
 extends Node2D
 
 
-signal hover_on
-signal hover_off
+signal hovered_over
+signal hovered_off
+
 
 var rank := 0
 var suit := ""
 var modifiers := []
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_parent().connect_card_signals(self)
+	add_to_group("cards")
 
 
 func set_card_type(card_rank: int, card_suit: String, card_modifiers: Array):
@@ -18,14 +20,14 @@ func set_card_type(card_rank: int, card_suit: String, card_modifiers: Array):
 	suit = card_suit
 	modifiers = card_modifiers
 
-	var card_texture = [suit, suit.substr(0, suit.length() - 1), rank]
+	var card_texture = [suit, suit.left(-1), rank]
 
 	$CardImage.texture = load("res://assets/card_art/%s/%s_%04d.png" % card_texture)
 
 
 func _on_area_2d_mouse_entered() -> void:
-	hover_on.emit(self)
+	hovered_over.emit(self)
 
 
 func _on_area_2d_mouse_exited() -> void:
-	hover_off.emit(self)
+	hovered_off.emit(self)

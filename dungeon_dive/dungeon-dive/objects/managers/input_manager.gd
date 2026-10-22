@@ -9,8 +9,7 @@ const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_DECK = 4
 
 
-@onready var card_manager_reference := $"../CardManager"
-@onready var deck_reference := $"../Deck"
+@export var card_manager: Node2D
 
 
 func _input(event: InputEvent) -> void:
@@ -41,8 +40,8 @@ func raycast_at_cursor():
 				var card_found = collider.get_parent()
 
 				if card_found:
-					card_manager_reference.start_drag(card_found)
+					card_manager.start_drag(card_found)
 			COLLISION_MASK_DECK:
-				deck_reference.draw_card()
+				card_manager.new_card()
 			_:
 				pass

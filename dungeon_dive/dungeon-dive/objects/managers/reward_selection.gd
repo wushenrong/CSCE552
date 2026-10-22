@@ -1,11 +1,15 @@
 extends Node
 
+
 signal choices_generated
 signal reward_selected(reward: Dictionary)
 
+
 const CHOICE_COUNT = 3
 
+
 var available_choices := []
+
 
 func generate_choices() -> void:
 	available_choices.clear()
