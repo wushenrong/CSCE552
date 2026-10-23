@@ -34,21 +34,3 @@ func clear_rewards() -> void:
 
 func get_rewards() -> Array:
 	return player_rewards.duplicate(true)
-
-
-##func _test_rewards() -> void: () ✅
-##	clear_rewards()
-
-##	add_reward_by_id("heart_of_hearts")
-##	add_reward_by_id("happy_jack")
-##	add_reward_by_id("heart_of_hearts")
-
-##	print("Reward count after adding: ", player_rewards.size())
-
-##	remove_reward_by_id("happy_jack")
-
-##	print("Reward count after removing: ", player_rewards.size())
-##	print("Remaining reward: ", player_rewards[0]["name"])
-
-##func _ready() -> void: ✅
-##	_test_rewards()

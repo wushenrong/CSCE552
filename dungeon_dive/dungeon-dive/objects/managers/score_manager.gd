@@ -229,7 +229,7 @@ func evaluate_hand(line: Array) -> Hand:
 
 	var rank_counts = {}
 	for card in cards:
-		var rank = get_rank(card)
+		var rank = card.rank
 		rank_counts[rank] = rank_counts.get(rank, 0) + 1
 
 	var counts = rank_counts.values()
@@ -286,20 +286,12 @@ func check_straight(ranks: Array) -> bool:
 
 # Card data, set by the Deck when a card is drawn
 
-func get_rank(card) -> int:
-	return card.get("rank")
-
-
-func get_suit(card) -> String:
-	return card.get("suit")
-
-
 func get_cards_of_rank(cards: Array, rank: int) -> Array:
-	return cards.filter(func(card): return get_rank(card) == rank)
+	return cards.filter(func(card): return card.rank == rank)
 
 
 func get_cards_of_suit(cards: Array, suit: String) -> Array:
-	return cards.filter(func(card): return get_suit(card) == suit)
+	return cards.filter(func(card): return card.suit == suit)
 
 
 # A pair or better, the hands that reward descriptions call a "scoring hand"
@@ -338,7 +330,7 @@ func apply_modifiers_to_points(cards: Array, hand: Hand, points: float) -> float
 	if not is_scoring_hand(hand):
 		return points
 
-	var active_modifiers = $"../RunRewards".player_rewards
+	var active_modifiers = $"../RewardsManager".player_rewards
 
 	for modifier in active_modifiers:
 		match modifier["type"]:
@@ -373,7 +365,7 @@ func apply_modifiers_to_mult(cards: Array, hand: Hand, mult: float) -> float:
 	if not is_scoring_hand(hand):
 		return mult
 
-	var active_modifiers = $"../RunRewards".player_rewards
+	var active_modifiers = $"../RewardsManager".player_rewards
 
 	for modifier in active_modifiers:
 		match modifier["type"]:

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cin8d2lvvcuje" path="res://objects/game/tile.tscn" id="3_8ht1c"]
 [ext_resource type="Script" uid="uid://jpckpj2o4e2v" path="res://objects/managers/score_manager.gd" id="3_u0ej0"]
 [ext_resource type="Script" uid="uid://bp134w5sq1u55" path="res://objects/managers/input_manager.gd" id="4_u0ej0"]
-[ext_resource type="Script" uid="uid://bfn1c2n6lu5hg" path="res://objects/managers/run_rewards.gd" id="5_u0ej0"]
+[ext_resource type="Script" uid="uid://bfn1c2n6lu5hg" path="res://objects/managers/rewards_manager.gd" id="5_u0ej0"]
 [ext_resource type="PackedScene" uid="uid://dyvu5qejybhi6" path="res://objects/game/boss.tscn" id="6_so14g"]
 [ext_resource type="Script" uid="uid://bfbxfbupn4ikp" path="res://objects/managers/wave_manager.gd" id="7_ljli5"]
 [ext_resource type="PackedScene" uid="uid://ckahcebra33c2" path="res://objects/game/hand_panel.tscn" id="8_tw3k8"]
@@ -35,7 +35,7 @@ bus = &"SoundEffects"
 [node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
 script = ExtResource("4_u0ej0")
 
-[node name="RunRewards" type="Node2D" parent="." unique_id=337918548]
+[node name="RewardManager" type="Node2D" parent="." unique_id=337918548]
 script = ExtResource("5_u0ej0")
 
 [node name="ScoreManager" type="Node2D" parent="." unique_id=1227665085]

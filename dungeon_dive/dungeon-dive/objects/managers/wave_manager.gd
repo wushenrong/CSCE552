@@ -29,9 +29,9 @@ func start_wave() -> void:
 
 func end_wave(total: int) -> void:
 	if total >= point_goal:
-		wave_cleared.emit(wave, $"../RunRewards".get_rewards())
+		wave_cleared.emit(wave, $"../RewardsManager".get_rewards())
 	else:
-		wave_failed.emit(wave, $"../RunRewards".get_rewards())
+		wave_failed.emit(wave, $"../RewardsManager".get_rewards())
 
 
 # Connected to the RewardsMenu's closed signal in scene_04
