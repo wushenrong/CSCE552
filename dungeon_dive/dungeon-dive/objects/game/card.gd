@@ -28,6 +28,15 @@ func set_card_data(new_rank: int, new_suit: String, new_modifiers := []) -> void
 	$CardImage.texture = load(CARD_ART_PATH % [suit, suit.trim_suffix("s"), art_number])
 
 
+# Same shape as the card data in the Deck, so a saved card can be spawned again
+func get_card_data() -> Dictionary:
+	return {
+		"suit": suit,
+		"rank": rank,
+		"modifiers": modifiers
+	}
+
+
 func _on_area_2d_mouse_entered() -> void:
 	hover_on.emit(self)
 

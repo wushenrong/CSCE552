@@ -20,7 +20,7 @@ var cards_drawn := []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# TODO: Load deck from save
+	# A continued run replaces this deck in load_save_data
 	create_deck()
 
 
@@ -43,9 +43,15 @@ func draw_card():
 	if deck.is_empty():
 		return
 
-	var new_card = CARD_SCENE.instantiate()
 	var card_data = deck.pick_random()
 	deck.erase(card_data)
+
+	spawn_card(card_data)
+
+
+# Creates a drawn card on top of the deck, also used by the CardManager to restore saved cards
+func spawn_card(card_data: Dictionary) -> Node2D:
+	var new_card = CARD_SCENE.instantiate()
 
 	new_card.position = position
 	new_card.set_card_data(card_data["rank"], card_data["suit"], card_data["modifiers"])
@@ -54,6 +60,8 @@ func draw_card():
 	$"../CardManager".connect_card_signals(new_card)
 
 	cards_drawn.append(card_data)
+
+	return new_card
 
 
 func reset_deck():
@@ -67,3 +75,13 @@ func reset_deck():
 func animate_card_to_position(card, new_position):
 	var tween = get_tree().create_tween()
 	tween.tween_property(card, "position", new_position, 0.1)
+
+
+# Drawn cards are saved by the CardManager, they are added back to cards_drawn as they are spawned
+func get_save_data() -> Dictionary:
+	return {"deck": deck}
+
+
+func load_save_data(data: Dictionary) -> void:
+	deck = data["deck"]
+	cards_drawn.clear()

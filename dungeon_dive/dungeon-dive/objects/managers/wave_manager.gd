@@ -13,14 +13,16 @@ var wave := 1
 var point_goal := 0
 
 
-func _ready() -> void:
-	start_wave()
-
-
+# Called by the Board when a new run starts, a continued run uses load_save_data instead
 func start_wave() -> void:
+	$"../Boss".roll_boss()
+	update_wave()
+
+
+# Sets the goal and scores the board, the boss for this wave must already be set
+func update_wave() -> void:
 	point_goal = BASE_POINT_GOAL + (wave - 1) * POINT_GOAL_PER_WAVE
 	PlayerSettings.update_highest_wave(wave)
-	$"../Boss".roll_boss()
 	$"../ScoreManager".score_board($"../CardManager".board_cards)
 
 	%WaveLabel.text = "Wave %d" % wave
@@ -41,3 +43,12 @@ func start_next_wave() -> void:
 	$"../CardManager".clear_board()
 	$"../Deck".reset_deck()
 	start_wave()
+
+
+func get_save_data() -> Dictionary:
+	return {"wave": wave}
+
+
+func load_save_data(data: Dictionary) -> void:
+	wave = data["wave"]
+	update_wave()

@@ -40,3 +40,15 @@ func clear_rewards() -> void:
 
 func get_rewards() -> Array:
 	return player_rewards.duplicate(true)
+
+
+# Only the IDs are saved, the rest of each reward comes from RewardData
+func get_save_data() -> Dictionary:
+	return {"reward_ids": player_rewards.map(func(reward): return reward["id"])}
+
+
+func load_save_data(data: Dictionary) -> void:
+	clear_rewards()
+
+	for reward_id in data["reward_ids"]:
+		add_reward_by_id(reward_id)

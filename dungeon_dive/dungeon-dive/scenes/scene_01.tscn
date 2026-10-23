@@ -31,6 +31,13 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=1998085506]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Continue"
+
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=702022105]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
@@ -54,6 +61,7 @@ text = "Exit"
 [node name="RulesMenu" parent="." unique_id=264742200 instance=ExtResource("2_dw6ru")]
 visible = false
 
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/RulesButton" to="RulesMenu" method="_on_rules_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

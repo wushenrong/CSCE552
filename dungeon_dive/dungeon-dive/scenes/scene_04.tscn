@@ -23,8 +23,9 @@ board = NodePath("../Board")
 visible = false
 board = NodePath("../Board")
 
-[node name="PauseMenu" parent="." unique_id=2125591716 instance=ExtResource("2_fd2wn")]
+[node name="PauseMenu" parent="." unique_id=2125591716 node_paths=PackedStringArray("board") instance=ExtResource("2_fd2wn")]
 visible = false
+board = NodePath("../Board")
 
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="closed" from="RewardsMenu" to="Board" method="_on_rewards_menu_closed"]

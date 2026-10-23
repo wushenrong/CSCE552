@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 
+@export var board: Node2D
+
+
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	show()
@@ -15,7 +18,7 @@ func _on_settings_button_pressed() -> void:
 
 
 func _on_save_button_pressed() -> void:
-	# TODO: Perform saving game process here
+	board.save_game()
 	SceneManager.goto_scene("res://scenes/scene_01.tscn")
 
 
