@@ -1,6 +1,10 @@
 extends Node2D
 
 
+const CARD_PLACED_SFX = preload("res://assets/sound_effects/card_placed_down_fx.wav")
+const CARD_DRAWN_SFX = preload("res://assets/sound_effects/card_draw_from_deck_fx.wav")
+
+
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_TILE = 2
 
@@ -29,6 +33,7 @@ func _process(_delta: float) -> void:
 func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
+	play_card_sfx(CARD_DRAWN_SFX)
 
 
 func finish_drag():
@@ -52,6 +57,8 @@ func finish_drag():
 		card_being_dragged.position = $"../Deck".position
 
 	card_being_dragged = null
+
+	play_card_sfx(CARD_PLACED_SFX)
 
 
 func clear_board():
@@ -103,7 +110,12 @@ func highlight_card(card, is_being_hovered_over):
 			card.z_index = 1
 
 
-func masked_raycast(collision_mask):
+func play_card_sfx(stream: AudioStream):
+	$CardSFX.stream = stream
+	$CardSFX.play()
+
+
+func masked_raycast(collision_mask: int):
 	# Taken from Godot documentation
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()

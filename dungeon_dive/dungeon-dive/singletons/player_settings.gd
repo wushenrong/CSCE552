@@ -6,8 +6,8 @@ const PROGRESS_KEY = "progress"
 
 var config := ConfigFile.new()
 
-@export var music_volume := 100
-@export var sfx_volume := 100
+@export var music_volume := 1.0
+@export var sfx_volume := 1.0
 
 var highest_wave := 0
 

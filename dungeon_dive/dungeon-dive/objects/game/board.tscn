@@ -27,6 +27,9 @@ corner_radius_bottom_left = 8
 [node name="CardManager" type="Node2D" parent="." unique_id=1798775084]
 script = ExtResource("1_bofx1")
 
+[node name="CardSFX" type="AudioStreamPlayer2D" parent="CardManager" unique_id=918145059]
+bus = &"SoundEffects"
+
 [node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
 script = ExtResource("4_u0ej0")
 
@@ -167,7 +170,11 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ScoreSFX" type="AudioStreamPlayer2D" parent="ScoreManager" unique_id=1382286485]
+bus = &"SoundEffects"
+
 [node name="HandPanel" parent="." unique_id=1454739544 instance=ExtResource("8_tw3k8")]
+anchors_preset = 0
 
 [node name="Boss" parent="." unique_id=1130748521 instance=ExtResource("6_so14g")]
 
@@ -279,33 +286,33 @@ position = Vector2(1060, 850)
 [node name="Tile24" parent="." unique_id=1167535797 groups=["tiles"] instance=ExtResource("3_8ht1c")]
 position = Vector2(1180, 850)
 
+[connection signal="gui_input" from="ScoreManager/RowScore0" to="ScoreManager" method="_on_line_label_gui_input" binds= [0]]
 [connection signal="mouse_entered" from="ScoreManager/RowScore0" to="HandPanel" method="hover_line" binds= [0]]
 [connection signal="mouse_exited" from="ScoreManager/RowScore0" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/RowScore0" to="ScoreManager" method="_on_line_label_gui_input" binds= [0]]
+[connection signal="gui_input" from="ScoreManager/RowScore1" to="ScoreManager" method="_on_line_label_gui_input" binds= [1]]
 [connection signal="mouse_entered" from="ScoreManager/RowScore1" to="HandPanel" method="hover_line" binds= [1]]
 [connection signal="mouse_exited" from="ScoreManager/RowScore1" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/RowScore1" to="ScoreManager" method="_on_line_label_gui_input" binds= [1]]
+[connection signal="gui_input" from="ScoreManager/RowScore2" to="ScoreManager" method="_on_line_label_gui_input" binds= [2]]
 [connection signal="mouse_entered" from="ScoreManager/RowScore2" to="HandPanel" method="hover_line" binds= [2]]
 [connection signal="mouse_exited" from="ScoreManager/RowScore2" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/RowScore2" to="ScoreManager" method="_on_line_label_gui_input" binds= [2]]
+[connection signal="gui_input" from="ScoreManager/RowScore3" to="ScoreManager" method="_on_line_label_gui_input" binds= [3]]
 [connection signal="mouse_entered" from="ScoreManager/RowScore3" to="HandPanel" method="hover_line" binds= [3]]
 [connection signal="mouse_exited" from="ScoreManager/RowScore3" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/RowScore3" to="ScoreManager" method="_on_line_label_gui_input" binds= [3]]
+[connection signal="gui_input" from="ScoreManager/RowScore4" to="ScoreManager" method="_on_line_label_gui_input" binds= [4]]
 [connection signal="mouse_entered" from="ScoreManager/RowScore4" to="HandPanel" method="hover_line" binds= [4]]
 [connection signal="mouse_exited" from="ScoreManager/RowScore4" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/RowScore4" to="ScoreManager" method="_on_line_label_gui_input" binds= [4]]
+[connection signal="gui_input" from="ScoreManager/ColumnScore0" to="ScoreManager" method="_on_line_label_gui_input" binds= [5]]
 [connection signal="mouse_entered" from="ScoreManager/ColumnScore0" to="HandPanel" method="hover_line" binds= [5]]
 [connection signal="mouse_exited" from="ScoreManager/ColumnScore0" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/ColumnScore0" to="ScoreManager" method="_on_line_label_gui_input" binds= [5]]
+[connection signal="gui_input" from="ScoreManager/ColumnScore1" to="ScoreManager" method="_on_line_label_gui_input" binds= [6]]
 [connection signal="mouse_entered" from="ScoreManager/ColumnScore1" to="HandPanel" method="hover_line" binds= [6]]
 [connection signal="mouse_exited" from="ScoreManager/ColumnScore1" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/ColumnScore1" to="ScoreManager" method="_on_line_label_gui_input" binds= [6]]
+[connection signal="gui_input" from="ScoreManager/ColumnScore2" to="ScoreManager" method="_on_line_label_gui_input" binds= [7]]
 [connection signal="mouse_entered" from="ScoreManager/ColumnScore2" to="HandPanel" method="hover_line" binds= [7]]
 [connection signal="mouse_exited" from="ScoreManager/ColumnScore2" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/ColumnScore2" to="ScoreManager" method="_on_line_label_gui_input" binds= [7]]
+[connection signal="gui_input" from="ScoreManager/ColumnScore3" to="ScoreManager" method="_on_line_label_gui_input" binds= [8]]
 [connection signal="mouse_entered" from="ScoreManager/ColumnScore3" to="HandPanel" method="hover_line" binds= [8]]
 [connection signal="mouse_exited" from="ScoreManager/ColumnScore3" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/ColumnScore3" to="ScoreManager" method="_on_line_label_gui_input" binds= [8]]
+[connection signal="gui_input" from="ScoreManager/ColumnScore4" to="ScoreManager" method="_on_line_label_gui_input" binds= [9]]
 [connection signal="mouse_entered" from="ScoreManager/ColumnScore4" to="HandPanel" method="hover_line" binds= [9]]
 [connection signal="mouse_exited" from="ScoreManager/ColumnScore4" to="HandPanel" method="end_hover"]
-[connection signal="gui_input" from="ScoreManager/ColumnScore4" to="ScoreManager" method="_on_line_label_gui_input" binds= [9]]
