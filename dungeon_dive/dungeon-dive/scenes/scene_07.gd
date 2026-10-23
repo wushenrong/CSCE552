@@ -13,5 +13,9 @@ func _ready() -> void:
 		%HandTable.get_node(row_name + "Points").text = str(ScoreManager.HAND_POINTS[hand])
 
 
+func _on_rules_button_pressed() -> void:
+	show()
+
+
 func _on_back_button_pressed() -> void:
-	get_tree().root.remove_child(self)
+	hide()

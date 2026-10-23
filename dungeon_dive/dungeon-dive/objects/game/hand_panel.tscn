@@ -7,7 +7,7 @@ content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
 content_margin_bottom = 4.0
-bg_color = Color(0.96862745, 0.94509805, 0.8627451, 1)
+bg_color = Color(0.96862745, 0.94509804, 0.8627451, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -26,11 +26,13 @@ corner_radius_bottom_left = 6
 
 [node name="HandPanel" type="Control" unique_id=1454739544]
 layout_mode = 3
+anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_fhdo5")
 
 [node name="ScoringButton" type="Button" parent="." unique_id=469552043]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 110.0
 offset_right = 260.0
 offset_bottom = 53.0
@@ -41,6 +43,7 @@ text = "Scoring"
 [node name="ScoringPanel" type="PanelContainer" parent="." unique_id=1800183133]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 20.0
 offset_top = 70.0
 offset_right = 560.0
@@ -113,6 +116,7 @@ text = "= 0"
 [node name="BreakdownLabel" type="Label" parent="ScoringPanel/HandContainer" unique_id=1773159760]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
+custom_maximum_size = Vector2(540, -1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Hover the score at the end of a row or column to see how it was scored."
