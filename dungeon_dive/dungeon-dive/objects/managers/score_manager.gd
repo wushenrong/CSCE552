@@ -4,6 +4,11 @@ extends Node2D
 ## line score = points (American Poker Squares) x mult
 
 
+const SINGLE_COIN_FX = preload("res://assets/sound_effects/single_coin_falling_fx.wav")
+const DOUBLE_COIN_FX = preload("res://assets/sound_effects/double_coins_falling_fx.wav")
+const COINS_FALLING_FX = preload("res://assets/sound_effects/coins_falling_fx.wav")
+
+
 const BOARD_SIZE = 5
 const CARD_SIZE = Vector2(96, 128)
 const HIGHLIGHT_PADDING = 8
@@ -79,20 +84,31 @@ func _ready() -> void:
 
 
 ## board: 25 cards in row order (index = row * 5 + col), null for an empty tile.
+
+## board: 25 cards in row order (index = row * 5 + col), null for an empty tile.
 func score_board(board: Array) -> int:
 	var total = 0
+	var pitch = 1.0
 	line_results.clear()
 
 	for i in BOARD_SIZE:
 		total += score_line(get_row(board, i))
 		record_line("Row %d" % (i + 1), row_labels[i])
+		play_scoring_sfx(total, pitch)
+		pitch += 0.2
 
 	for i in BOARD_SIZE:
 		total += score_line(get_column(board, i))
 		record_line("Column %d" % (i + 1), column_labels[i])
+		play_scoring_sfx(total, pitch)
+		pitch += 0.2
+
+	if total > 0:
+		play_score_sfx(COINS_FALLING_FX, 1.0)
 
 	%ScoreLabel.text = "Score: %d" % total
 	$"../HandPanel".update_board(line_results)
+
 	return total
 
 
@@ -222,12 +238,13 @@ func evaluate_hand(line: Array) -> Hand:
 	var is_flush = false
 	var is_straight = false
 	if cards.size() == BOARD_SIZE:
-		is_flush = cards.all(func(card): return get_suit(card) == get_suit(cards[0]))
+		is_flush = cards.all(func(card): return card.suit == cards[0].suit)
 		is_straight = check_straight(rank_counts.keys())
 
 	if is_straight and is_flush:
 		if rank_counts.has(10) and rank_counts.has(14):
 			return Hand.ROYAL_FLUSH
+
 		return Hand.STRAIGHT_FLUSH
 
 	if counts[0] == 4:
@@ -344,7 +361,7 @@ func apply_modifiers_to_points(cards: Array, hand: Hand, points: float) -> float
 				var rank_cards = get_cards_of_rank(cards, modifier["rank"])
 				if not rank_cards.is_empty():
 					var is_reversed = is_modifier_reversed(rank_cards)
-					var bonus = -RANK_BONUS_POINTS if is_reversed else RANK_BONUS_POINTS
+					var bonus = - RANK_BONUS_POINTS if is_reversed else RANK_BONUS_POINTS
 					points += bonus
 					add_breakdown(modifier["name"], "%+d points" % bonus, get_reversed_reason(1 if is_reversed else 0))
 
@@ -387,3 +404,16 @@ func is_modifier_reversed(triggering_cards: Array) -> bool:
 		return false
 
 	return triggering_cards.any(func(card): return boss.is_tile_affected(card.tile_index))
+
+
+func play_scoring_sfx(score: int, pitch: float):
+	if score > 0:
+		play_score_sfx(DOUBLE_COIN_FX if score > HAND_POINTS[Hand.FOUR_OF_A_KIND] else SINGLE_COIN_FX, pitch)
+
+
+func play_score_sfx(stream: AudioStream, pitch: float):
+	$ScoreSFX.stream = stream
+	$ScoreSFX.pitch_scale = pitch
+	$ScoreSFX.play()
+
+	await get_tree().create_timer(stream.get_length() + 0.1).timeout
