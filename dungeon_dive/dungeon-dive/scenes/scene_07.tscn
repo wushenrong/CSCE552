@@ -43,6 +43,7 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 24
 
 [node name="HowToPlayLabel" type="Label" parent="ScrollContainer/RulesContainer" unique_id=781918264]
+custom_maximum_size = Vector2(1192, -1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Drag the card on the deck onto an empty tile, then click the deck to draw the next card. Each of the 5 rows and 5 columns is scored as a poker hand, using the American point system below. Fill all 25 tiles to end the wave: reach the point goal to choose a reward, or the run ends."
@@ -252,6 +253,7 @@ text = "0"
 horizontal_alignment = 2
 
 [node name="ScoringNotesLabel" type="Label" parent="ScrollContainer/RulesContainer" unique_id=95479141]
+custom_maximum_size = Vector2(1192, -1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Pairs, two pair, three and four of a kind score as soon as their cards are placed. Straights and flushes need all five cards in the line.
