@@ -6,7 +6,6 @@ extends Node2D
 
 const SINGLE_COIN_FX = preload("res://assets/sound_effects/single_coin_falling_fx.wav")
 const DOUBLE_COIN_FX = preload("res://assets/sound_effects/double_coins_falling_fx.wav")
-const COINS_FALLING_FX = preload("res://assets/sound_effects/coins_falling_fx.wav")
 
 
 const BOARD_SIZE = 5
@@ -73,6 +72,8 @@ var line_results := []
 var highlighted_index := -1
 var highlight_color: Color
 
+var pitch := 1.0
+var previous_total := 0
 
 func _ready() -> void:
 	# Gold comes from %LineHighlight's border colour in board.tscn
@@ -88,26 +89,33 @@ func _ready() -> void:
 ## board: 25 cards in row order (index = row * 5 + col), null for an empty tile.
 func score_board(board: Array) -> int:
 	var total = 0
-	var pitch = 1.0
 	line_results.clear()
 
 	for i in BOARD_SIZE:
 		total += score_line(get_row(board, i))
 		record_line("Row %d" % (i + 1), row_labels[i])
-		play_scoring_sfx(total, pitch)
-		pitch += 0.2
 
 	for i in BOARD_SIZE:
 		total += score_line(get_column(board, i))
 		record_line("Column %d" % (i + 1), column_labels[i])
-		play_scoring_sfx(total, pitch)
-		pitch += 0.2
 
-	if total > 0:
-		play_score_sfx(COINS_FALLING_FX, 1.0)
+	var score_difference = total - previous_total
+
+	if score_difference < 0:
+		pitch = 1.0
+	else:
+		if score_difference > HAND_POINTS[Hand.STRAIGHT]:
+			play_score_sfx(DOUBLE_COIN_FX)
+		elif score_difference > 0:
+			play_score_sfx(SINGLE_COIN_FX)
+
+		if pitch < 5.0:
+			pitch += 0.4
 
 	%ScoreLabel.text = "Score: %d" % total
 	$"../HandPanel".update_board(line_results)
+
+	previous_total = total
 
 	return total
 
@@ -399,14 +407,9 @@ func is_modifier_reversed(triggering_cards: Array) -> bool:
 	return triggering_cards.any(func(card): return boss.is_tile_affected(card.tile_index))
 
 
-func play_scoring_sfx(score: int, pitch: float):
-	if score > 0:
-		play_score_sfx(DOUBLE_COIN_FX if score > HAND_POINTS[Hand.FOUR_OF_A_KIND] else SINGLE_COIN_FX, pitch)
-
-
-func play_score_sfx(stream: AudioStream, pitch: float):
+func play_score_sfx(stream: AudioStream):
 	$ScoreSFX.stream = stream
 	$ScoreSFX.pitch_scale = pitch
 	$ScoreSFX.play()
 
-	await get_tree().create_timer(stream.get_length() + 0.1).timeout
+	await $ScoreSFX.finished

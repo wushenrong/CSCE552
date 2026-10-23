@@ -27,5 +27,5 @@ board = NodePath("../Board")
 visible = false
 
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
-[connection signal="closed" from="RewardsMenu" to="Board/WaveManager" method="start_next_wave"]
-[connection signal="reward_chosen" from="RewardsMenu" to="Board/RunRewards" method="add_reward_by_id"]
+[connection signal="closed" from="RewardsMenu" to="Board" method="_on_rewards_menu_closed"]
+[connection signal="reward_chosen" from="RewardsMenu" to="Board" method="_on_rewards_menu_reward_chosen"]
