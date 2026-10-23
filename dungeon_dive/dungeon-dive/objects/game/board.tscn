@@ -35,7 +35,7 @@ bus = &"SoundEffects"
 [node name="InputManager" type="Node2D" parent="." unique_id=1273779281]
 script = ExtResource("4_u0ej0")
 
-[node name="RewardManager" type="Node2D" parent="." unique_id=337918548]
+[node name="RewardsManager" type="Node2D" parent="." unique_id=337918548]
 script = ExtResource("5_u0ej0")
 
 [node name="ScoreManager" type="Node2D" parent="." unique_id=1227665085]
