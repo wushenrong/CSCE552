@@ -11,3 +11,11 @@ func _on_wave_manager_wave_cleared(wave: int, owned_rewards: Array) -> void:
 
 func _on_wave_manager_wave_failed(wave: int, owned_rewards: Array) -> void:
 	on_wave_failed.call(wave, owned_rewards)
+
+
+func _on_rewards_menu_closed() -> void:
+	$WaveManager.start_next_wave()
+
+
+func _on_rewards_menu_reward_chosen(reward: String) -> void:
+	$RewardsManager.add_reward_by_id(reward)

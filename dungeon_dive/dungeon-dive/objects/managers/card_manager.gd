@@ -114,6 +114,8 @@ func play_card_sfx(stream: AudioStream):
 	$CardSFX.stream = stream
 	$CardSFX.play()
 
+	await $CardSFX.finished
+
 
 func masked_raycast(collision_mask: int):
 	# Taken from Godot documentation

@@ -30,6 +30,7 @@ func start_wave() -> void:
 func end_wave(total: int) -> void:
 	if total >= point_goal:
 		wave_cleared.emit(wave, $"../RewardsManager".get_rewards())
+		$WinSFX.play()
 	else:
 		wave_failed.emit(wave, $"../RewardsManager".get_rewards())
 
