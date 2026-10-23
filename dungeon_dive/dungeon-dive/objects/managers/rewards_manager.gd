@@ -1,9 +1,12 @@
 extends Node2D
 
+
 signal rewards_changed
+
 
 # Rewards collected during the current run.
 var player_rewards := []
+
 
 func add_reward_by_id(reward_id: String) -> void:
 	var reward = RewardData.get_reward(reward_id)
@@ -21,6 +24,7 @@ func add_reward_by_id(reward_id: String) -> void:
 	player_rewards.append(reward)
 	rewards_changed.emit()
 
+
 func remove_reward_by_id(reward_id: String) -> void:
 	for i in range(player_rewards.size()):
 		if player_rewards[i]["id"] == reward_id:
@@ -28,9 +32,11 @@ func remove_reward_by_id(reward_id: String) -> void:
 			rewards_changed.emit()
 			return
 
+
 func clear_rewards() -> void:
 	player_rewards.clear()
 	rewards_changed.emit()
+
 
 func get_rewards() -> Array:
 	return player_rewards.duplicate(true)
