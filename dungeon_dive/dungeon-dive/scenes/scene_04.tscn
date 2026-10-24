@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cvoptdt8h8f6j" path="res://scenes/scene_03.tscn" id="2_fd2wn"]
 [ext_resource type="PackedScene" uid="uid://c8sw380gbegr" path="res://scenes/scene_05.tscn" id="2_vxajl"]
 [ext_resource type="PackedScene" uid="uid://yep0duijg1pc" path="res://scenes/scene_06.tscn" id="3_7atwa"]
+[ext_resource type="PackedScene" uid="uid://bg5bs4fgejf6p" path="res://scenes/background.tscn" id="5_80e3g"]
 
 [node name="GameBoard" type="Node2D" unique_id=969703328]
 
@@ -26,6 +27,12 @@ board = NodePath("../Board")
 [node name="PauseMenu" parent="." unique_id=2125591716 node_paths=PackedStringArray("board") instance=ExtResource("2_fd2wn")]
 visible = false
 board = NodePath("../Board")
+
+[node name="Background" parent="." unique_id=1138468362 instance=ExtResource("5_80e3g")]
+layer = -1
+offset = Vector2(955, 550)
+scale = Vector2(5.1, 5.1)
+transform = Transform2D(5.1, 0, 0, 5.1, 955, 550)
 
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="closed" from="RewardsMenu" to="Board" method="_on_rewards_menu_closed"]
