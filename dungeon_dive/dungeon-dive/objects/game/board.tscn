@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ckahcebra33c2" path="res://objects/game/hand_panel.tscn" id="8_tw3k8"]
 [ext_resource type="AudioStream" uid="uid://b83njwx2og2so" path="res://assets/sound_effects/coins_falling_fx.wav" id="9_aa7yy"]
 [ext_resource type="PackedScene" uid="uid://ckyex07qufrlj" path="res://objects/game/hand_slot.tscn" id="10_l6do2"]
+[ext_resource type="Script" uid="uid://brl2lefoggeg8" path="res://objects/managers/owned_rewards_panel.gd" id="13_7e7mc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgrqe"]
 draw_center = false
@@ -298,6 +299,26 @@ position = Vector2(1060, 850)
 
 [node name="Tile24" parent="." unique_id=1167535797 groups=["tiles"] instance=ExtResource("3_8ht1c")]
 position = Vector2(1180, 850)
+
+[node name="OwnedRewardsPanel" type="PanelContainer" parent="." unique_id=1155684369]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1372.0
+offset_top = 645.0
+offset_right = 1881.0
+offset_bottom = 972.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("13_7e7mc")
+
+[node name="RewardScroll" type="ScrollContainer" parent="OwnedRewardsPanel" unique_id=1024086460]
+layout_mode = 2
+
+[node name="RewardList" type="VBoxContainer" parent="OwnedRewardsPanel/RewardScroll" unique_id=854994393]
+layout_mode = 2
 
 [connection signal="gui_input" from="ScoreManager/RowScore0" to="ScoreManager" method="_on_line_label_gui_input" binds= [0]]
 [connection signal="mouse_entered" from="ScoreManager/RowScore0" to="HandPanel" method="hover_line" binds= [0]]
