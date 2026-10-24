@@ -40,13 +40,14 @@ func create_deck():
 
 
 func draw_card():
-	if deck.is_empty():
+	# One drawn card at a time, it has to be placed before the next draw
+	if deck.is_empty() or $"../HandSlot".is_holding_card():
 		return
 
 	var card_data = deck.pick_random()
 	deck.erase(card_data)
 
-	spawn_card(card_data)
+	$"../HandSlot".hold_card(spawn_card(card_data))
 
 
 # Creates a drawn card on top of the deck, also used by the CardManager to restore saved cards

@@ -17,6 +17,7 @@ theme_override_constants/separation = 8
 
 [node name="BossLabel" type="Label" parent="BossPanel/BossContainer" unique_id=804681161]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_font_sizes/font_size = 24
 text = "Boss"
 horizontal_alignment = 1
@@ -24,6 +25,7 @@ horizontal_alignment = 1
 [node name="BossNameLabel" type="Label" parent="BossPanel/BossContainer" unique_id=351609181]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 
@@ -31,6 +33,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 autowrap_mode = 3

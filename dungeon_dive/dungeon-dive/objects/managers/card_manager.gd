@@ -33,6 +33,7 @@ func _process(_delta: float) -> void:
 func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
+	card.stop_idle_hover()
 	play_card_sfx(CARD_DRAWN_SFX)
 
 
@@ -49,7 +50,7 @@ func finish_drag():
 		if not board_cards.has(null):
 			$"../WaveManager".end_wave(total)
 	else:
-		card_being_dragged.position = $"../Deck".position
+		$"../HandSlot".hold_card(card_being_dragged)
 
 	card_being_dragged = null
 
@@ -60,6 +61,8 @@ func finish_drag():
 func place_card(card, tile):
 	card.position = tile.position
 	card.get_node("Area2D/CollisionShape2D").disabled = true
+	# Same as an unhovered card in highlight_card, so it draws above the tile
+	card.z_index = 1
 	tile.is_card_in_slot = true
 
 	var tile_index = int(tile.name.trim_prefix("Tile"))
@@ -153,7 +156,7 @@ func raycast_check_for_tile():
 
 
 func get_save_data() -> Dictionary:
-	# Drawn cards that were not placed yet are still waiting on top of the deck
+	# Drawn cards that were not placed yet are still waiting in the HandSlot
 	var hand_cards = get_tree().get_nodes_in_group("cards").filter(func(card): return card.tile_index == -1)
 
 	return {
@@ -171,4 +174,4 @@ func load_save_data(data: Dictionary) -> void:
 			place_card($"../Deck".spawn_card(card_data), get_node("../Tile%d" % tile_index))
 
 	for card_data in data["hand_cards"]:
-		$"../Deck".spawn_card(card_data)
+		$"../HandSlot".hold_card($"../Deck".spawn_card(card_data))

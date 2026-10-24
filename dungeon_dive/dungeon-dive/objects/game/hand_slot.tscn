@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://8h8dohkrd1rnn"]
+
+[ext_resource type="Script" path="res://objects/game/hand_slot.gd" id="1_mduhp"]
+
+[node name="HandSlot" type="Marker2D" unique_id=960936444]
+script = ExtResource("1_mduhp")
