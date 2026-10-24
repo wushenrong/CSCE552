@@ -222,7 +222,7 @@ z_index = -2
 position = Vector2(200, 850)
 
 [node name="HandSlot" parent="." unique_id=446784634 instance=ExtResource("10_l6do2")]
-position = Vector2(940, 1000)
+position = Vector2(350, 850)
 
 [node name="Tile0" parent="." unique_id=2095669093 groups=["tiles"] instance=ExtResource("3_8ht1c")]
 position = Vector2(700, 250)
