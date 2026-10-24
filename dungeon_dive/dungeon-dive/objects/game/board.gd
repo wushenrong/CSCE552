@@ -5,6 +5,12 @@ var on_wave_cleared: Callable
 var on_wave_failed: Callable
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save_game()
+		get_tree().quit()
+
+
 # Called after every child is ready, so the saved run can be put back on top of them
 func _ready() -> void:
 	var run = SaveManager.load_run()
