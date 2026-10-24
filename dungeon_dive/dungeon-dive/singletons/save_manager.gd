@@ -1,10 +1,7 @@
 extends Node
 
 # Kept apart from PlayerSettings' settings.cfg so a run can be deleted on its own
-const SAVE_FILE = "user://save.cfg"
-const RUN_KEY = "run"
-
-var config := ConfigFile.new()
+const SAVE_FILE = "user://save.save"
 
 
 func has_save() -> bool:
@@ -13,28 +10,25 @@ func has_save() -> bool:
 
 # run: one Dictionary per Board node, see Board.save_game
 func save_run(run: Dictionary):
-	config.clear()
-
-	for key in run:
-		config.set_value(RUN_KEY, key, run[key])
-
-	config.save(SAVE_FILE)
+	var save_file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+	var json_string = JSON.stringify(run)
+	save_file.store_line(json_string)
 
 
 # Returns an empty Dictionary when there is no run to continue
 func load_run() -> Dictionary:
-	var run = {}
+	if not has_save():
+		return {}
 
-	config.clear()
-	var error = config.load(SAVE_FILE)
+	var save_file = FileAccess.open(SAVE_FILE, FileAccess.READ)
+	var json_string = save_file.get_line()
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
 
-	if error != OK or not config.has_section(RUN_KEY):
-		return run
+	if not parse_result == OK:
+		return {}
 
-	for key in config.get_section_keys(RUN_KEY):
-		run[key] = config.get_value(RUN_KEY, key)
-
-	return run
+	return json.data
 
 
 # Called when a run ends or a new one starts, Continue is hidden on the main menu after this
