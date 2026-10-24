@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvvlf0bkbwrqx"]
 
 [ext_resource type="Script" uid="uid://cety2o1jpkgxn" path="res://scenes/scene_01.gd" id="1_yf216"]
+[ext_resource type="PackedScene" uid="uid://bg5bs4fgejf6p" path="res://scenes/background.tscn" id="3_o2il5"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=585737389]
 script = ExtResource("1_yf216")
@@ -56,6 +57,12 @@ text = "Settings"
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Exit"
+
+[node name="Background" parent="." unique_id=1138468362 instance=ExtResource("3_o2il5")]
+layer = -1
+offset = Vector2(955, 550)
+scale = Vector2(5.1, 5.1)
+transform = Transform2D(5.1, 0, 0, 5.1, 955, 550)
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
