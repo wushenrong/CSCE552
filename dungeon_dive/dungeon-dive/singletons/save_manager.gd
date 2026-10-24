@@ -25,7 +25,7 @@ func load_run() -> Dictionary:
 	var json = JSON.new()
 	var parse_result = json.parse(json_string)
 
-	if not parse_result == OK:
+	if parse_result != OK:
 		return {}
 
 	return json.data
