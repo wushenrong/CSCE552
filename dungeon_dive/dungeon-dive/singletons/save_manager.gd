@@ -1,7 +1,7 @@
 extends Node
 
 # Kept apart from PlayerSettings' settings.cfg so a run can be deleted on its own
-const SAVE_FILE = "user://save.save"
+const SAVE_FILE = "user://savegame.save"
 
 
 func has_save() -> bool:
