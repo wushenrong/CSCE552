@@ -5,6 +5,7 @@ var current_scene: Node = null
 
 
 @onready var settings_scene := preload("res://scenes/scene_02.tscn").instantiate()
+@onready var rules_scene := preload("res://scenes/scene_07.tscn").instantiate()
 
 
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		settings_scene.queue_free()
+		rules_scene.queue_free()
 		get_tree().quit()
 
 
@@ -39,3 +41,8 @@ func _deferred_goto_scene(path: String):
 func show_settings():
 	if not settings_scene.is_inside_tree():
 		get_tree().root.add_child(settings_scene)
+
+
+func show_rules():
+	if not rules_scene.is_inside_tree():
+		get_tree().root.add_child(rules_scene)

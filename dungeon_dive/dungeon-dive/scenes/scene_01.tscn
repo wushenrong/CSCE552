@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bvvlf0bkbwrqx"]
 
 [ext_resource type="Script" uid="uid://cety2o1jpkgxn" path="res://scenes/scene_01.gd" id="1_yf216"]
-[ext_resource type="PackedScene" uid="uid://dyrod8j7wlwgv" path="res://scenes/scene_07.tscn" id="2_dw6ru"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=585737389]
 script = ExtResource("1_yf216")
@@ -58,11 +57,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Exit"
 
-[node name="RulesMenu" parent="." unique_id=264742200 instance=ExtResource("2_dw6ru")]
-visible = false
-
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/RulesButton" to="RulesMenu" method="_on_rules_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RulesButton" to="." method="_on_rules_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
