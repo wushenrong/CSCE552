@@ -1,4 +1,3 @@
-
 extends PanelContainer
 
 
@@ -7,7 +6,7 @@ extends PanelContainer
 
 
 func _ready() -> void:
-	rewards_manager.rewards_changed.connect(refresh_rewards)
+	rewards_manager.rewards_changed.connect(refresh_rewards.bind())
 	refresh_rewards()
 
 

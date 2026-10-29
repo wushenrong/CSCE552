@@ -20,7 +20,7 @@ func _ready() -> void:
 	board_cards.resize(25)
 	board_cards.fill(null)
 	screen_size = get_viewport_rect().size
-	$"../InputManager".connect("left_mouse_button_released", on_left_click_released)
+	$"../InputManager".left_mouse_button_released.connect(on_left_click_released.bind())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,8 +82,8 @@ func clear_board():
 
 
 func connect_card_signals(card):
-	card.connect("hover_on", on_hover_on_card)
-	card.connect("hover_off", on_hover_off_card)
+	card.hover_on.connect(on_hover_on_card.bind())
+	card.hover_off.connect(on_hover_off_card.bind())
 
 
 func on_left_click_released():
