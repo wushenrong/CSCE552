@@ -12,8 +12,17 @@ func save_game():
 
 
 func load_game():
-	if not FileAccess.file_exists(SAVE_FILE):
+	if not has_save_file():
 		return
 
 	# TODO: Load Nodes
 	pass
+
+
+func has_save_file():
+	return FileAccess.file_exists(SAVE_FILE)
+
+
+func delete_save():
+	if has_save_file():
+		DirAccess.remove_absolute(SAVE_FILE)
