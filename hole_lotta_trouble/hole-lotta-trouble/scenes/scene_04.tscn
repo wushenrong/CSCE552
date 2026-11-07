@@ -1,3 +1,51 @@
 [gd_scene format=3 uid="uid://b7o42i4t8yae3"]
 
+[ext_resource type="Script" uid="uid://ddh07p1tnqtop" path="res://scenes/scene_04.gd" id="1_k4vnl"]
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=1968234638]
+process_mode = 2
+script = ExtResource("1_k4vnl")
+
+[node name="PausedLabel" type="Label" parent="." unique_id=1598012286]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=905966876]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -225.0
+offset_right = 250.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=953302240]
+layout_mode = 2
+text = "Settings"
+
+[node name="LoadSaveButton" type="Button" parent="VBoxContainer" unique_id=1019024926]
+layout_mode = 2
+text = "Load Save"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer" unique_id=400887588]
+layout_mode = 2
+text = "Save & Exit"
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=758139473]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_load_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

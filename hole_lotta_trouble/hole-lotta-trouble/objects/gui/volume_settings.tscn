@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://drmuo0uqm3vjb"]
+
+[ext_resource type="Script" uid="uid://bngrdg2svhue5" path="res://objects/gui/volume_settings.gd" id="1_p0ws7"]
+
+[node name="VolumeSettings" type="VBoxContainer" unique_id=1355200685]
+offset_right = 600.0
+offset_bottom = 200.0
+script = ExtResource("1_p0ws7")
+
+[node name="MasterSettings" type="PanelContainer" parent="." unique_id=751609033]
+layout_mode = 2
+
+[node name="MasterContainer" type="HBoxContainer" parent="MasterSettings" unique_id=616916251]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="MasterSettings/MasterContainer" unique_id=1150699183]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="MasterSettings/MasterContainer" unique_id=1888673236]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicSettings" type="PanelContainer" parent="." unique_id=1991980884]
+layout_mode = 2
+
+[node name="MusicContainer" type="HBoxContainer" parent="MusicSettings" unique_id=1471102580]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="MusicSettings/MusicContainer" unique_id=1869318643]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="MusicSettings/MusicContainer" unique_id=1665047136]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXSettings" type="PanelContainer" parent="." unique_id=103988096]
+layout_mode = 2
+
+[node name="SFXContainer" type="HBoxContainer" parent="SFXSettings" unique_id=1048093492]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="SFXSettings/SFXContainer" unique_id=1844942293]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Sound Effects"
+
+[node name="SFXSlider" type="HSlider" parent="SFXSettings/SFXContainer" unique_id=1165008720]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[connection signal="value_changed" from="MasterSettings/MasterContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MusicSettings/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="SFXSettings/SFXContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

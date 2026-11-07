@@ -1,3 +1,47 @@
 [gd_scene format=3 uid="uid://ydgrtjmoqero"]
 
+[ext_resource type="Script" uid="uid://cbhf6vim3132y" path="res://scenes/scene_02.gd" id="1_cd7om"]
+[ext_resource type="PackedScene" uid="uid://drmuo0uqm3vjb" path="res://objects/gui/volume_settings.tscn" id="1_lj1yu"]
+
 [node name="SettingsMenu" type="CanvasLayer" unique_id=2007087505]
+process_mode = 3
+script = ExtResource("1_cd7om")
+
+[node name="SettingsLabel" type="Label" parent="." unique_id=12505127]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSettings" parent="." unique_id=1355200685 instance=ExtResource("1_lj1yu")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -44.0
+offset_right = 250.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="." unique_id=701566133]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -180.0
+offset_right = 100.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

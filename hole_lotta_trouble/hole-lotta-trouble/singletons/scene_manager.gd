@@ -1,8 +1,6 @@
 extends Node
 
-
 var current_scene: Node = null
-
 
 @onready var settings_scene := preload("res://scenes/scene_02.tscn").instantiate()
 
