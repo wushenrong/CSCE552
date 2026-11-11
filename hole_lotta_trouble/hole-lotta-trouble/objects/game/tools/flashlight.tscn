@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://bskld2phc13e6"]
 
-[node name="Flashlight" type="Node3D" unique_id=158689724]
+[ext_resource type="Script" uid="uid://ct5j0makno3w1" path="res://objects/game/tools/flashlight.gd" id="1_kim1g"]
+[ext_resource type="PackedScene" uid="uid://crlf35ynxr83i" path="res://assets/models/flashlight.gltf" id="1_v3h2o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xe1v5"]
+size = Vector3(0.5, 0.47802734, 0.8445053)
+
+[node name="Flashlight" type="StaticBody3D" unique_id=876753134]
+script = ExtResource("1_kim1g")
+
+[node name="FlashlightModel" parent="." unique_id=1382893350 instance=ExtResource("1_v3h2o")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=417929908]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0.46917766)
+visible = false
+spot_angle = 28.497042
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=849803543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010986328, 0.4069481)
+shape = SubResource("BoxShape3D_xe1v5")
