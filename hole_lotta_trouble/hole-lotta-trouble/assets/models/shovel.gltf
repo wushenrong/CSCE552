@@ -20,7 +20,6 @@
 	],
 	"materials":[
 		{
-			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"name":"Material",
 			"pbrMetallicRoughness":{
