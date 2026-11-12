@@ -1,7 +1,7 @@
 extends StaticBody3D
 
 
-@onready var light: SpotLight3D = $"SpotLight3D"
+@onready var light: SpotLight3D = $SpotLight3D
 
 
 func use():

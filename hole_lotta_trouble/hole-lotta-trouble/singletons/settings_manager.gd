@@ -1,17 +1,22 @@
 extends Node
 
+
 const SETTINGS_FILE = "user://settings.cfg"
 const VOLUME_KEY = "volume"
+
 
 @export_range(0.0, 0.1, 0.01) var master_volume: float = 1.0
 @export_range(0.0, 0.1, 0.01) var music_volume: float = 1.0
 @export_range(0.0, 0.1, 0.01) var sfx_volume: float = 1.0
 
+
 @export var master_bus_name := "Master"
 @export var music_bus_name := "Music"
 @export var sfx_bus_name := "SFX"
 
+
 var config := ConfigFile.new()
+
 
 @onready var _master_bus := AudioServer.get_bus_index(master_bus_name)
 @onready var _music_bus := AudioServer.get_bus_index(music_bus_name)

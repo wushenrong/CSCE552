@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://c58xv8fcckxuf"]
 
+[ext_resource type="PackedScene" uid="uid://8f8ejrg77cdm" path="res://assets/models/ladder.glb" id="1_niuly"]
+
 [node name="Ladder" type="Node3D" unique_id=1846683646]
+
+[node name="ladder" parent="." unique_id=11771367 instance=ExtResource("1_niuly")]

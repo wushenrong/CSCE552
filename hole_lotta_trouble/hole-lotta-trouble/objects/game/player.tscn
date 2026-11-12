@@ -1,3 +1,27 @@
 [gd_scene format=3 uid="uid://0x2kahwaocan"]
 
+[ext_resource type="Script" uid="uid://pisemai4khlj" path="res://objects/game/player.gd" id="1_o8ihb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7sjoo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faaa1"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i2moc"]
+
 [node name="Player" type="CharacterBody3D" unique_id=33879716]
+script = ExtResource("1_o8ihb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2047057295]
+mesh = SubResource("CapsuleMesh_7sjoo")
+surface_material_override/0 = SubResource("StandardMaterial3D_faaa1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=924198600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002319336, -0.00015258789)
+shape = SubResource("CapsuleShape3D_i2moc")
+
+[node name="Head" type="Node3D" parent="." unique_id=780386847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7048431, -0.33388484)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=712650951]
+far = 200.0

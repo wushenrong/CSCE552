@@ -1,3 +1,23 @@
 [gd_scene format=3 uid="uid://jsui30pmpv66"]
 
+[ext_resource type="PackedScene" uid="uid://0x2kahwaocan" path="res://objects/game/player.tscn" id="1_faaa1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g3jqs"]
+size = Vector3(13.320862, 1, 47.990723)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3sc4"]
+size = Vector3(13.349243, 1.0153809, 48.01141)
+
 [node name="World" type="Node3D" unique_id=249649759]
+
+[node name="Player" parent="." unique_id=33879716 instance=ExtResource("1_faaa1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1236009935]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=724301641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4884338, -2.2896254, -20.014893)
+mesh = SubResource("BoxMesh_g3jqs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=550564720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.472351, -2.2901611, -20.012602)
+shape = SubResource("BoxShape3D_l3sc4")
