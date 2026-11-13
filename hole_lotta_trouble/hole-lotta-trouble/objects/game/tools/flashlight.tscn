@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_xe1v5"]
 size = Vector3(0.5, 0.47802734, 0.8445053)
 
-[node name="Flashlight" type="StaticBody3D" unique_id=876753134]
+[node name="Flashlight" type="StaticBody3D" unique_id=1005849173]
 script = ExtResource("1_kim1g")
 
 [node name="FlashlightModel" parent="." unique_id=1382893350 instance=ExtResource("1_v3h2o")]
@@ -20,3 +20,10 @@ spot_angle = 28.497042
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=849803543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010986328, 0.4069481)
 shape = SubResource("BoxShape3D_xe1v5")
+
+[node name="FlashlightSFX" type="Node3D" parent="." unique_id=444991846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+
+[node name="FlashlightOn" type="AudioStreamPlayer3D" parent="FlashlightSFX" unique_id=1988220338]
+
+[node name="FlashlightOff" type="AudioStreamPlayer3D" parent="FlashlightSFX" unique_id=682515892]

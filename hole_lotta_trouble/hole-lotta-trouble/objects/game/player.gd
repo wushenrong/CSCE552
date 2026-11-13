@@ -28,10 +28,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		head.rotation.x = clamp(head.rotation.x, -PI / 2, PI / 2)
 
-	if event is InputEventAction:
-		if event.is_action_pressed("use_item"):
-			# TODO: Use Item When Held
-			pass
+	if event.is_action_pressed("use_item"):
+		# TODO: Use Item When Held
+		pass
 
 
 func _physics_process(delta: float) -> void:

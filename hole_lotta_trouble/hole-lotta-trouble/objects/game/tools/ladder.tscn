@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://c58xv8fcckxuf"]
 
 [ext_resource type="PackedScene" uid="uid://8f8ejrg77cdm" path="res://assets/models/ladder.glb" id="1_niuly"]
+[ext_resource type="Script" uid="uid://gs3ywm42s7po" path="res://objects/game/tools/ladder.gd" id="1_pq1mj"]
 
-[node name="Ladder" type="Node3D" unique_id=1846683646]
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3sc4"]
+size = Vector3(0.50305176, 2.0089417, 0.04534912)
 
-[node name="ladder" parent="." unique_id=11771367 instance=ExtResource("1_niuly")]
+[node name="Ladder" type="StaticBody3D" unique_id=106261888]
+script = ExtResource("1_pq1mj")
+
+[node name="LadderModel" parent="." unique_id=11771367 instance=ExtResource("1_niuly")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=551478582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0006713867, 1.0016937, -0.00039672852)
+shape = SubResource("BoxShape3D_l3sc4")

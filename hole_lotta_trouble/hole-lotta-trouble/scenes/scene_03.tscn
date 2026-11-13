@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://d3o2sixq56rv2"]
 
+[ext_resource type="Script" uid="uid://5qejiys0ilkd" path="res://scenes/scene_03.gd" id="1_lkbgj"]
+[ext_resource type="PackedScene" uid="uid://0x2kahwaocan" path="res://objects/game/player.tscn" id="1_nhmps"]
+[ext_resource type="PackedScene" uid="uid://jsui30pmpv66" path="res://objects/game/world.tscn" id="2_lkbgj"]
+[ext_resource type="PackedScene" uid="uid://b7o42i4t8yae3" path="res://scenes/scene_04.tscn" id="3_ydii0"]
+
 [node name="GameWorld" type="Node3D" unique_id=492706145]
+script = ExtResource("1_lkbgj")
+
+[node name="Player" parent="." unique_id=33879716 instance=ExtResource("1_nhmps")]
+
+[node name="World" parent="." unique_id=249649759 instance=ExtResource("2_lkbgj")]
+
+[node name="PauseMenu" parent="." unique_id=1968234638 instance=ExtResource("3_ydii0")]
+visible = false

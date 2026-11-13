@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://d0wt5que3qh1e"]
 
-[node name="Shovel" type="Node3D" unique_id=413094964]
+[ext_resource type="PackedScene" uid="uid://8edtumccifp8" path="res://assets/models/shovel.gltf" id="1_0n4to"]
+[ext_resource type="Script" uid="uid://cjhcymjrj5gb1" path="res://objects/game/tools/shovel.gd" id="1_cuvlb"]
+
+[node name="Shovel" type="AnimatableBody3D" unique_id=457291985]
+script = ExtResource("1_cuvlb")
+
+[node name="SovelModel" parent="." unique_id=340649916 instance=ExtResource("1_0n4to")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="." unique_id=2067058266]
+depth = 0.145
+polygon = PackedVector2Array(-0.037304744, -0.0015289634, 0.03549871, -0.0020565167, 0.03803943, 0.72638834, 0.20328274, 0.72695845, 0.20450681, 1.1355847, -0.20346859, 1.1362001, -0.20983887, 0.727286, -0.036798757, 0.727286)

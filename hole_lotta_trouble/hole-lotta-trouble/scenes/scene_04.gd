@@ -1,9 +1,21 @@
 extends CanvasLayer
 
 
-func _on_pause_button_pressed() -> void:
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause_game"):
+		_unpause_game()
+
+
+func pause_game() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	get_tree().paused = true
 	show()
+
+
+func _unpause_game():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_tree().paused = false
+	hide()
 
 
 func _on_settings_button_pressed() -> void:
@@ -23,5 +35,4 @@ func _on_save_button_pressed() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	get_tree().paused = false
-	hide()
+	_unpause_game()

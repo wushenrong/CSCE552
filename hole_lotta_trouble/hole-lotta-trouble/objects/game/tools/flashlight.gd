@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Tool
 
 
 @onready var light: SpotLight3D = $SpotLight3D
@@ -6,6 +6,8 @@ extends StaticBody3D
 
 func use():
 	if not light.visible:
-		light.visible = true
+		light.show()
+		$FlashlightSFX/FlashlightOn.play()
 	else:
-		light.visible = false
+		light.hide()
+		$FlashlightSFX/FlashlightOff.play()

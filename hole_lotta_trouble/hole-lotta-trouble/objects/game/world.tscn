@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://jsui30pmpv66"]
 
-[ext_resource type="PackedScene" uid="uid://0x2kahwaocan" path="res://objects/game/player.tscn" id="1_faaa1"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_g3jqs"]
 size = Vector3(13.320862, 1, 47.990723)
 
@@ -9,8 +7,6 @@ size = Vector3(13.320862, 1, 47.990723)
 size = Vector3(13.349243, 1.0153809, 48.01141)
 
 [node name="World" type="Node3D" unique_id=249649759]
-
-[node name="Player" parent="." unique_id=33879716 instance=ExtResource("1_faaa1")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1236009935]
 

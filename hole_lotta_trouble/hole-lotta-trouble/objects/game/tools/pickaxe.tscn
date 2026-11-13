@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ofddl37iyv25" path="res://assets/models/pickaxe.glb" id="1_gptnf"]
 
-[node name="Pickaxe" type="Node3D" unique_id=6167883]
+[node name="Pickaxe" type="AnimatableBody3D" unique_id=274993237]
 
-[node name="pickaxe" parent="." unique_id=186693874 instance=ExtResource("1_gptnf")]
+[node name="PickaxeModel" parent="." unique_id=186693874 instance=ExtResource("1_gptnf")]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="." unique_id=90172542]
+depth = 0.12
+polygon = PackedVector2Array(-0.31660098, 0.87696713, -0.17930426, 0.9154772, -0.043443628, 0.93067497, -0.050937865, -0.002771575, 0.051936578, -0.0059369393, 0.04497409, 0.93019766, 0.17482077, 0.9171516, 0.3099001, 0.8785504, 0.23677175, 0.95733595, 0.10821464, 1.0206634, 0.0015255376, 1.0393791, -0.12739943, 1.0142639, -0.2186515, 0.9673821)
