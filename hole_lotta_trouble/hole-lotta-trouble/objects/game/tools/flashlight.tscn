@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ct5j0makno3w1" path="res://objects/game/tools/flashlight.gd" id="1_kim1g"]
 [ext_resource type="PackedScene" uid="uid://crlf35ynxr83i" path="res://assets/models/flashlight.gltf" id="1_v3h2o"]
+[ext_resource type="AudioStream" uid="uid://c8y8dniee4oo4" path="res://assets/sound_effects/flashlight_on.wav" id="3_ll8tb"]
+[ext_resource type="AudioStream" uid="uid://dbha8x4uefilo" path="res://assets/sound_effects/flashlight_off.wav" id="4_62ora"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xe1v5"]
 size = Vector3(0.5, 0.47802734, 0.8445053)
@@ -25,5 +27,7 @@ shape = SubResource("BoxShape3D_xe1v5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 
 [node name="FlashlightOn" type="AudioStreamPlayer3D" parent="FlashlightSFX" unique_id=1988220338]
+stream = ExtResource("3_ll8tb")
 
 [node name="FlashlightOff" type="AudioStreamPlayer3D" parent="FlashlightSFX" unique_id=682515892]
+stream = ExtResource("4_62ora")
