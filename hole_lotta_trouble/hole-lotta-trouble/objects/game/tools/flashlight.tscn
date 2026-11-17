@@ -28,6 +28,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 
 [node name="FlashlightOn" type="AudioStreamPlayer3D" parent="FlashlightSFX" unique_id=1988220338]
 stream = ExtResource("3_ll8tb")
+bus = &"SFX"
 
 [node name="FlashlightOff" type="AudioStreamPlayer3D" parent="FlashlightSFX" unique_id=682515892]
 stream = ExtResource("4_62ora")
+bus = &"SFX"
