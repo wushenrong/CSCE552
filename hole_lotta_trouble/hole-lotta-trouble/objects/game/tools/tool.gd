@@ -1,5 +1,5 @@
 class_name Tool
-extends StaticBody3D
+extends Node3D
 
 func use() -> void:
-	pass
+    pass

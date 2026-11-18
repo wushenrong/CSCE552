@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://0x2kahwaocan"]
 
 [ext_resource type="Script" uid="uid://pisemai4khlj" path="res://objects/game/player.gd" id="1_o8ihb"]
+[ext_resource type="Script" uid="uid://cwrh3jktti46r" path="res://objects/game/hand.gd" id="2_5p535"]
+[ext_resource type="PackedScene" uid="uid://cbx4ha5dmxxe5" path="res://objects/game/tools/fillnozzle.tscn" id="2_ycjr0"]
+[ext_resource type="PackedScene" uid="uid://bskld2phc13e6" path="res://objects/game/tools/flashlight.tscn" id="4_410g5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7sjoo"]
 
@@ -17,7 +20,7 @@ mesh = SubResource("CapsuleMesh_7sjoo")
 surface_material_override/0 = SubResource("StandardMaterial3D_faaa1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=924198600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002319336, -0.00015258789)
+transform = Transform3D(0.9999426, -0.000111886955, 0.010714895, 6.468466e-05, 0.9999903, 0.0044055623, -0.010715284, -0.004404616, 0.9999329, 0, 0.002319336, -0.00015258789)
 shape = SubResource("CapsuleShape3D_i2moc")
 
 [node name="Head" type="Node3D" parent="." unique_id=780386847]
@@ -26,7 +29,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7048431, -0.33388484)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=712650951]
 far = 200.0
 
-[node name="AudioListener3D" type="AudioListener3D" parent="Head" unique_id=1480411171]
+[node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=1095034024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.3048431, -0.26811516)
+script = ExtResource("2_5p535")
 
-[node name="Hand" type="Node3D" parent="." unique_id=1095034024]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, -0.602)
+[node name="FillNozzle" parent="Head/Camera3D/Hand" unique_id=1082282869 node_paths=PackedStringArray("camera", "player_body") instance=ExtResource("2_ycjr0")]
+transform = Transform3D(-0.35, 0, -3.059797e-08, 0, 0.35, 0, 3.059797e-08, 0, -0.35, 0, 0, 0.2)
+camera = NodePath("../..")
+player_body = NodePath("../../../..")
+
+[node name="Flashlight" parent="Head/Camera3D/Hand" unique_id=1005849173 instance=ExtResource("4_410g5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D" unique_id=1307219960]
+light_color = Color(0.90588236, 0.79607844, 0.6627451, 1)
+omni_range = 10.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Head" unique_id=1480411171]
