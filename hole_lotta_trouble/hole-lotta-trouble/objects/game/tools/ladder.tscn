@@ -7,6 +7,8 @@
 size = Vector3(0.50305176, 2.0089417, 0.04534912)
 
 [node name="Ladder" type="StaticBody3D" unique_id=106261888]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_pq1mj")
 
 [node name="LadderModel" parent="." unique_id=11771367 instance=ExtResource("1_niuly")]

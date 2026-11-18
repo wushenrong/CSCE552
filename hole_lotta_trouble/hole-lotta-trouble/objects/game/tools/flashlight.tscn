@@ -5,7 +5,12 @@
 [ext_resource type="AudioStream" uid="uid://c8y8dniee4oo4" path="res://assets/sound_effects/flashlight_on.wav" id="3_ll8tb"]
 [ext_resource type="AudioStream" uid="uid://dbha8x4uefilo" path="res://assets/sound_effects/flashlight_off.wav" id="4_62ora"]
 
-[node name="Flashlight" type="Node3D" unique_id=798631371]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xe1v5"]
+size = Vector3(0.5, 0.47802734, 0.8445053)
+
+[node name="Flashlight" type="StaticBody3D" unique_id=1005849173]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_kim1g")
 
 [node name="FlashlightModel" parent="." unique_id=1382893350 instance=ExtResource("1_v3h2o")]

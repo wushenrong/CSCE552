@@ -11,3 +11,11 @@ func use() -> void:
 	else:
 		light.hide()
 		$FlashlightSFX/FlashlightOff.play()
+
+
+func disable_collision():
+	$CollisionShape3D.disabled = true
+
+
+func enable_collision():
+	$CollisionShape3D.disabled = false

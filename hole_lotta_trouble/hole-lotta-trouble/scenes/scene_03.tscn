@@ -4,32 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://0x2kahwaocan" path="res://objects/game/player.tscn" id="1_nhmps"]
 [ext_resource type="PackedScene" uid="uid://jsui30pmpv66" path="res://objects/game/world.tscn" id="2_lkbgj"]
 [ext_resource type="PackedScene" uid="uid://b7o42i4t8yae3" path="res://scenes/scene_04.tscn" id="3_ydii0"]
-[ext_resource type="PackedScene" uid="uid://bwevvvfscxfog" path="res://assets/terrain/Terrain Scenes/cave_terrain_(5,5,5).tscn" id="4_i32yi"]
-[ext_resource type="PackedScene" uid="uid://dc4wgcj4p45x1" path="res://assets/terrain/Terrain Scenes/cave_terrain_(6,5,5).tscn" id="5_jcuuf"]
-[ext_resource type="PackedScene" uid="uid://kp8jn18auvyy" path="res://assets/terrain/Terrain GLB exports/Cavespace.glb" id="7_jcuuf"]
-[ext_resource type="Script" uid="uid://c8behk1sfsnmh" path="res://objects/game/cavespace.gd" id="7_v1g84"]
 
 [node name="GameWorld" type="Node3D" unique_id=492706145]
 script = ExtResource("1_lkbgj")
 
-[node name="Player" parent="." unique_id=33879716 instance=ExtResource("1_nhmps")]
-
 [node name="World" parent="." unique_id=249649759 instance=ExtResource("2_lkbgj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13951874, -0.44800758, -0.93378067)
 
-[node name="Cave Terrain" type="Node3D" parent="World" unique_id=1301351287]
-
-[node name="cave_terrain_(5,5,5)" parent="World/Cave Terrain" unique_id=488866337 instance=ExtResource("4_i32yi")]
-
-[node name="cave_terrain_(6,5,5)" parent="World/Cave Terrain" unique_id=2087045017 instance=ExtResource("5_jcuuf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
-
-[node name="cave_terrain_(6,5,5)2" parent="World/Cave Terrain" unique_id=74206969 instance=ExtResource("5_jcuuf")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20, 0, 0)
-
-[node name="Cavespace" parent="World/Cave Terrain" unique_id=1579061224 instance=ExtResource("7_jcuuf")]
-visible = false
-script = ExtResource("7_v1g84")
+[node name="Player" parent="." unique_id=33879716 instance=ExtResource("1_nhmps")]
 
 [node name="PauseMenu" parent="." unique_id=1968234638 instance=ExtResource("3_ydii0")]
 visible = false

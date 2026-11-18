@@ -1,15 +1,24 @@
 [gd_scene format=3 uid="uid://vmjolmyc6kpd"]
 
 [ext_resource type="PackedScene" uid="uid://ds3goyotfsju" path="res://assets/models/barrel.gltf" id="1_r5q84"]
+[ext_resource type="Script" uid="uid://bd607yjsoxr0o" path="res://objects/game/hazards/explosive_barrel.gd" id="1_xdohc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l3sc4"]
-height = 3.0048523
-radius = 1.3173828
+height = 1.5182476
+radius = 0.65478516
 
 [node name="ExplosiveBarrel" type="RigidBody3D" unique_id=638839262]
+collision_layer = 8
+collision_mask = 15
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_xdohc")
 
 [node name="Barrel" parent="." unique_id=1672408993 instance=ExtResource("1_r5q84")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=453205713]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5000458, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7525301, 0)
 shape = SubResource("CylinderShape3D_l3sc4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
