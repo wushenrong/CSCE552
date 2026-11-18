@@ -29,20 +29,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7048431, -0.33388484)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=712650951]
 far = 200.0
 
-[node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=1095034024]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.3048431, -0.26811516)
-script = ExtResource("2_5p535")
-
-[node name="FillNozzle" parent="Head/Camera3D/Hand" unique_id=1082282869 node_paths=PackedStringArray("camera", "player_body") instance=ExtResource("2_ycjr0")]
-transform = Transform3D(-0.35, 0, -3.059797e-08, 0, 0.35, 0, 3.059797e-08, 0, -0.35, 0, 0, 0.2)
-camera = NodePath("../..")
-player_body = NodePath("../../../..")
-
-[node name="Flashlight" parent="Head/Camera3D/Hand" unique_id=1005849173 instance=ExtResource("4_410g5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D" unique_id=1307219960]
 light_color = Color(0.90588236, 0.79607844, 0.6627451, 1)
 omni_range = 10.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Head" unique_id=1480411171]
+
+[node name="Hand" type="Node3D" parent="." unique_id=1095034024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, -0.602)
+script = ExtResource("2_5p535")
+
+[node name="FillNozzle" parent="Hand" unique_id=1082282869 node_paths=PackedStringArray("camera", "player_body") instance=ExtResource("2_ycjr0")]
+transform = Transform3D(-0.35, 0, -3.059797e-08, 0, 0.35, 0, 3.059797e-08, 0, -0.35, 0, 0, 0.2)
+camera = NodePath("../../Head/Camera3D")
+player_body = NodePath("../..")
+
+[node name="Flashlight" parent="Hand" unique_id=1005849173 instance=ExtResource("4_410g5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
