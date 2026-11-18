@@ -7,7 +7,9 @@ data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 
 
 [node name="cave_terrain_(6,5,5)" unique_id=2087045017 instance=ExtResource("1_o6wgj")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" parent_id_path=PackedInt32Array(1105585486) index="0" unique_id=1950923804]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" parent_id_path=PackedInt32Array(1770659759) index="0" unique_id=1950923804]
+collision_layer = 2
+collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0" unique_id=1132064572]
 shape = SubResource("ConcavePolygonShape3D_ankbc")

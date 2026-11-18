@@ -7,16 +7,14 @@
 
 [node name="World" type="Node3D" unique_id=249649759]
 
-[node name="World#Cave Terrain" type="Node3D" parent="." unique_id=764600422]
+[node name="cave_terrain_(5,5,5)" parent="." unique_id=488866337 instance=ExtResource("1_m5c6j")]
 
-[node name="World_Cave Terrain#cave_terrain_(5,5,5)" parent="." unique_id=488866337 instance=ExtResource("1_m5c6j")]
-
-[node name="World_Cave Terrain#cave_terrain_(6,5,5)" parent="." unique_id=2087045017 instance=ExtResource("2_j2yj6")]
+[node name="cave_terrain_(6,5,5)" parent="." unique_id=2087045017 instance=ExtResource("2_j2yj6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 
-[node name="World_Cave Terrain#cave_terrain_(6,5,5)2" parent="." unique_id=1528094613 instance=ExtResource("2_j2yj6")]
+[node name="cave_terrain_(6,5,5)2" parent="." unique_id=1528094613 instance=ExtResource("2_j2yj6")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20, 0, 0)
 
-[node name="World_Cave Terrain#Cavespace" parent="." unique_id=1418773568 instance=ExtResource("3_4lcjg")]
+[node name="Cavespace" parent="." unique_id=1418773568 instance=ExtResource("3_4lcjg")]
 visible = false
 script = ExtResource("4_w6mcu")

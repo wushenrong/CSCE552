@@ -6,14 +6,18 @@ var current_tool_index: int = 0
 
 
 func _ready() -> void:
-	update_equipped_tool()
+	tools[current_tool_index].visible = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Switch between equipped items
 	if event.is_action_pressed("cycle_tool"):
+		tools[current_tool_index].visible = false
+
 		current_tool_index = (current_tool_index + 1) % tools.size()
-		update_equipped_tool()
+
+		tools[current_tool_index].visible = true
+
 		print("Switched to: ", tools[current_tool_index].name)
 
 	# Use the currently equipped item
@@ -27,8 +31,3 @@ func _unhandled_input(event: InputEvent) -> void:
 	# 	if tools[current_tool_index] is:
 	# 		print("Deposit button pressed")
 	# 		fill_nozzle.use()
-
-
-func update_equipped_tool() -> void:
-	for i in range(tools.size()):
-		tools[i].visible = (i == current_tool_index)
