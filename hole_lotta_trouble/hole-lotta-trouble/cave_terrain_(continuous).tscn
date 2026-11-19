@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dawe4i6ku6jfk"]
+
+[ext_resource type="PackedScene" uid="uid://50vr7ttch3r8" path="res://assets/terrain/Terrain Scenes/cave_terrain_(continuous).glb" id="1_kgpu3"]
+
+[node name="Node3D" type="Node3D" unique_id=1002679894]
+
+[node name="cave_terrain_(continuous)" parent="." unique_id=36444353 instance=ExtResource("1_kgpu3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.103363, -2.3841858e-07, -6.700574)

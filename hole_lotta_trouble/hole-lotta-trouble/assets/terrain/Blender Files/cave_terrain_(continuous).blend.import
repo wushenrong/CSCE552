@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bgn3dlqsh5qhh"
-path="res://.godot/imported/cave_terrain_(5,5,5).blend-cd96653b6052dc10be7ec6e3d2fbb128.scn"
+uid="uid://vnpiafvv1jee"
+path="res://.godot/imported/cave_terrain_(continuous).blend-66145cd5b09f4625308aa0f1d03cd9de.scn"
 
 [deps]
 
-source_file="res://assets/terrain/cave_terrain_(5,5,5).blend"
-dest_files=["res://.godot/imported/cave_terrain_(5,5,5).blend-cd96653b6052dc10be7ec6e3d2fbb128.scn"]
+source_file="res://assets/terrain/Blender Files/cave_terrain_(continuous).blend"
+dest_files=["res://.godot/imported/cave_terrain_(continuous).blend-66145cd5b09f4625308aa0f1d03cd9de.scn"]
 
 [params]
 

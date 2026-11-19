@@ -23,10 +23,10 @@ shape = SubResource("BoxShape3D_ll8tb")
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=417929908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 layers = 1023
-light_color = Color(0.90588236, 0.79607844, 0.6627451, 1)
+light_color = Color(0.9749854, 0.9296261, 0.87633747, 1)
 light_energy = 5.0
 shadow_enabled = true
-spot_range = 20.0
+spot_range = 30.0
 spot_angle = 29.28
 
 [node name="FlashlightSFX" type="Node3D" parent="." unique_id=444991846]

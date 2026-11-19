@@ -31,7 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7048431, -0.33388484)
 far = 200.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D" unique_id=1307219960]
-light_color = Color(0.90588236, 0.79607844, 0.6627451, 1)
+light_color = Color(0.9346113, 0.8540442, 0.757161, 1)
+light_energy = 0.7
 omni_range = 10.0
 
 [node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=1095034024]

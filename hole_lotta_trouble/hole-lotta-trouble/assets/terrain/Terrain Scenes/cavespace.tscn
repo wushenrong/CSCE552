@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dq4bmk03op4mn"]
+
+[ext_resource type="PackedScene" uid="uid://kp8jn18auvyy" path="res://assets/terrain/Terrain GLB exports/Cavespace.glb" id="1_dx7s3"]
+
+[node name="Cavespace" unique_id=1579061224 instance=ExtResource("1_dx7s3")]
