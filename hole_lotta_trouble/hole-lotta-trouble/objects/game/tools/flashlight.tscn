@@ -14,14 +14,13 @@ collision_mask = 2
 script = ExtResource("1_kim1g")
 
 [node name="FlashlightModel" parent="." unique_id=1382893350 instance=ExtResource("1_v3h2o")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2056624069]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 0.012435913, -0.4054842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 0.012435913, 0.41030717)
 shape = SubResource("BoxShape3D_ll8tb")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=417929908]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.5)
 layers = 1023
 light_color = Color(0.90588236, 0.79607844, 0.6627451, 1)
 light_energy = 5.0
@@ -30,7 +29,7 @@ spot_range = 20.0
 spot_angle = 29.28
 
 [node name="FlashlightSFX" type="Node3D" parent="." unique_id=444991846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3091074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3905894)
 
 [node name="FlashlightOn" type="AudioStreamPlayer3D" parent="FlashlightSFX" unique_id=1988220338]
 stream = ExtResource("3_ll8tb")

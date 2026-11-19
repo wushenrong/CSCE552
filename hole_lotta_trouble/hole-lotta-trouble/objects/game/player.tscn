@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://cwrh3jktti46r" path="res://objects/game/hand.gd" id="2_5p535"]
 [ext_resource type="PackedScene" uid="uid://cbx4ha5dmxxe5" path="res://objects/game/tools/fillnozzle.tscn" id="2_ycjr0"]
 [ext_resource type="PackedScene" uid="uid://bskld2phc13e6" path="res://objects/game/tools/flashlight.tscn" id="4_410g5"]
+[ext_resource type="PackedScene" uid="uid://cxvtd60ihkmvs" path="res://objects/game/tools/pickaxe.tscn" id="5_410g5"]
+[ext_resource type="PackedScene" uid="uid://c58xv8fcckxuf" path="res://objects/game/tools/ladder.tscn" id="6_ar42l"]
+[ext_resource type="PackedScene" uid="uid://d0wt5que3qh1e" path="res://objects/game/tools/shovel.tscn" id="7_k3wig"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7sjoo"]
 
@@ -35,7 +38,7 @@ light_color = Color(0.90588236, 0.79607844, 0.6627451, 1)
 omni_range = 10.0
 
 [node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=1095034024]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.3048431, -0.26811516)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.305, 0)
 script = ExtResource("2_5p535")
 
 [node name="FillNozzle" parent="Head/Camera3D/Hand" unique_id=1082282869 node_paths=PackedStringArray("camera", "player_body") instance=ExtResource("2_ycjr0")]
@@ -45,7 +48,19 @@ camera = NodePath("../..")
 player_body = NodePath("../../../..")
 
 [node name="Flashlight" parent="Head/Camera3D/Hand" unique_id=1005849173 instance=ExtResource("4_410g5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="Shovel" parent="Head/Camera3D/Hand" unique_id=457291985 instance=ExtResource("7_k3wig")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.09447765, -0.19246823, -0.39743114)
+visible = false
+
+[node name="Pickaxe" parent="Head/Camera3D/Hand" unique_id=274993237 instance=ExtResource("5_410g5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.09537023, -0.19145304, -0.39486456)
+visible = false
+
+[node name="Ladder" parent="Head/Camera3D/Hand" unique_id=106261888 instance=ExtResource("6_ar42l")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.15617752, -1.049998, -0.3800478)
 visible = false
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Head" unique_id=1480411171]

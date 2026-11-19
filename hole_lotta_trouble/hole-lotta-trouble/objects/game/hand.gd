@@ -1,22 +1,22 @@
 extends Node3D
 
 
-@onready var tools: Array[Tool] = [$Flashlight, $FillNozzle]
+@onready var tools: Array[Node] = get_children()
 var current_tool_index: int = 0
 
 
 func _ready() -> void:
-	tools[current_tool_index].visible = true
+	tools[current_tool_index].show()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Switch between equipped items
 	if event.is_action_pressed("cycle_tool"):
-		tools[current_tool_index].visible = false
+		tools[current_tool_index].hide()
 
 		current_tool_index = (current_tool_index + 1) % tools.size()
 
-		tools[current_tool_index].visible = true
+		tools[current_tool_index].show()
 
 		print("Switched to: ", tools[current_tool_index].name)
 
