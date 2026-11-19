@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://0x2kahwaocan" path="res://objects/game/player.tscn" id="1_nhmps"]
 [ext_resource type="PackedScene" uid="uid://jsui30pmpv66" path="res://objects/game/world.tscn" id="2_lkbgj"]
 [ext_resource type="PackedScene" uid="uid://b7o42i4t8yae3" path="res://scenes/scene_04.tscn" id="3_ydii0"]
+[ext_resource type="PackedScene" uid="uid://vmjolmyc6kpd" path="res://objects/game/hazards/explosive_barrel.tscn" id="4_ydii0"]
 
 [node name="GameWorld" type="Node3D" unique_id=492706145]
 script = ExtResource("1_lkbgj")
@@ -11,6 +12,9 @@ script = ExtResource("1_lkbgj")
 [node name="World" parent="." unique_id=249649759 instance=ExtResource("2_lkbgj")]
 
 [node name="Player" parent="." unique_id=33879716 instance=ExtResource("1_nhmps")]
+
+[node name="ExplosiveBarrel" parent="." unique_id=638839262 instance=ExtResource("4_ydii0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7542622, 0, 0)
 
 [node name="PauseMenu" parent="." unique_id=1968234638 instance=ExtResource("3_ydii0")]
 visible = false

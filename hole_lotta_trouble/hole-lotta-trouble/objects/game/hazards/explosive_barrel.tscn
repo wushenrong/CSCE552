@@ -5,14 +5,18 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l3sc4"]
 height = 1.5182476
-radius = 0.65478516
+radius = 0.6611328
 
-[node name="ExplosiveBarrel" type="RigidBody3D" unique_id=638839262]
+[sub_resource type="SphereShape3D" id="SphereShape3D_l3sc4"]
+radius = 2.0020654
+
+[node name="ExplosiveBarrel" type="RigidBody3D" unique_id=1117228516]
 collision_layer = 8
 collision_mask = 15
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_xdohc")
+metadata/_custom_type_script = "uid://b01d2yb6ukgdm"
 
 [node name="Barrel" parent="." unique_id=1672408993 instance=ExtResource("1_r5q84")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -20,5 +24,11 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=453205713]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7525301, 0)
 shape = SubResource("CylinderShape3D_l3sc4")
+
+[node name="ExplosionRadius" type="Area3D" parent="." unique_id=950470876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75081897, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionRadius" unique_id=1795211653]
+shape = SubResource("SphereShape3D_l3sc4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

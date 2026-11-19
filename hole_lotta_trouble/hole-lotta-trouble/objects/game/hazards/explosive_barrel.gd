@@ -1,22 +1,32 @@
-extends RigidBody3D
+extends Hazard
 
 
-signal exploded
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@onready var explosion_radius: Area3D = $ExplosionRadius
 
 
 func explode():
-	exploded.emit()
+	var in_explosion = explosion_radius.get_overlapping_bodies()
+
+	for node in in_explosion:
+		var force_direction = (node.position - position).normalized()
+		# if node.has_method("explode"):
+		# 	node.explode()
+
+		if node is RigidBody3D:
+			node.apply_impulse(force_direction)
+
+		if node is CharacterBody3D:
+			# node.velocity += force_direction
+			pass
+
+	print("Barrel Exploded")
+
+	queue_free()
 
 
 func _on_body_entered(body: Node) -> void:
 	if body is Tool:
+		# TODO: Check if tool is only shovel or pickaxe and has been swang
 		explode()
+
+	# TODO: Check if body is world and should explode with enough force
