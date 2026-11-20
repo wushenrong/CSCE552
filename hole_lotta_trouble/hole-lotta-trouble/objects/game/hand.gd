@@ -1,7 +1,7 @@
 extends Node3D
 
 
-@onready var tools: Array[Node] = get_children()
+@onready var tools = get_children() as Array[Tool]
 var current_tool_index: int = 0
 
 
