@@ -3,116 +3,7 @@
 [ext_resource type="Script" uid="uid://qd4qdmre5o7e" path="res://objects/game/tools/pickaxe.gd" id="1_5weoe"]
 [ext_resource type="PackedScene" uid="uid://ofddl37iyv25" path="res://assets/models/pickaxe.glb" id="1_gptnf"]
 
-[sub_resource type="Animation" id="Animation_5weoe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PickaxeModel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PickaxeModel:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionPolygon3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionPolygon3D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_gptnf"]
-resource_name = "mine"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PickaxeModel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.19999999, 0.7, 1.2),
-"transitions": PackedFloat32Array(0.24148409, 0.24148409, 2.8284283, 2.8284283),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.067213535, 0.07341799, 0), Vector3(0.2, -0.129, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PickaxeModel:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.40253997, 0.8030523, 1.2),
-"transitions": PackedFloat32Array(0.24148409, 0.24148409, 2.8284283, 2.8284283),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.5745204), Vector3(0, 0, -1.2042772), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionPolygon3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.19999999, 0.7, 1.2),
-"transitions": PackedFloat32Array(0.24148409, 0.24148409, 2.8284283, 2.8284283),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.067213535, 0.07341799, 0), Vector3(0.2, -0.129, 0), Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionPolygon3D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.40253997, 0.8030523, 1.2),
-"transitions": PackedFloat32Array(0.24148409, 0.24148409, 2.8284283, 2.8284283),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.5745204), Vector3(0, 0, -1.2042772), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5weoe"]
-_data = {
-&"RESET": SubResource("Animation_5weoe"),
-&"mine": SubResource("Animation_gptnf")
-}
-
-[node name="Pickaxe" type="AnimatableBody3D" unique_id=274993237]
+[node name="Pickaxe" type="StaticBody3D" unique_id=1713940646]
 collision_layer = 4
 collision_mask = 10
 script = ExtResource("1_5weoe")
@@ -121,8 +12,5 @@ script = ExtResource("1_5weoe")
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="." unique_id=90172542]
 depth = 0.12
+disabled = true
 polygon = PackedVector2Array(-0.31660098, 0.87696713, -0.17930426, 0.9154772, -0.043443628, 0.93067497, -0.050937865, -0.002771575, 0.051936578, -0.0059369393, 0.04497409, 0.93019766, 0.17482077, 0.9171516, 0.3099001, 0.8785504, 0.23677175, 0.95733595, 0.10821464, 1.0206634, 0.0015255376, 1.0393791, -0.12739943, 1.0142639, -0.2186515, 0.9673821)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1833015000]
-callback_mode_process = 0
-libraries/ = SubResource("AnimationLibrary_5weoe")

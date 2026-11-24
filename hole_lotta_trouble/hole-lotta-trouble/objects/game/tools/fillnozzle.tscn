@@ -16,6 +16,7 @@ script = ExtResource("1_mdk5v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2007953193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0064086914, 0.03918457, 0.77788544)
 shape = SubResource("BoxShape3D_l3sc4")
+disabled = true
 
 [node name="NozzleTip" type="Marker3D" parent="." unique_id=443029718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5857354)

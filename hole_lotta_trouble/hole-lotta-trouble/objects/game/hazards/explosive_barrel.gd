@@ -27,6 +27,7 @@ func explode():
 func _on_body_entered(body: Node) -> void:
 	if body is Tool:
 		# TODO: Check if tool is only shovel or pickaxe and has been swang
+		print(body.name)
 		explode()
 
 	# TODO: Check if body is world and should explode with enough force

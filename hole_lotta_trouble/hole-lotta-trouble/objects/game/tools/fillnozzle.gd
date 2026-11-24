@@ -12,7 +12,7 @@ signal deposit_requested(origin: Vector3, target: Vector3)
 @onready var nozzle_tip: Marker3D = $NozzleTip
 
 
-func use() -> void:
+func use(animation_player: AnimationPlayer) -> void:
 	print("1. Nozzle use started")
 
 	if camera == null:
