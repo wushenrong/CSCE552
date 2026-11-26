@@ -7,7 +7,7 @@ func _input(event: InputEvent) -> void:
 
 
 func pause_game() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	show()
 
