@@ -168,6 +168,7 @@ visible = false
 
 [node name="Shovel" parent="Head/Camera3D/Hand" unique_id=457291985 instance=ExtResource("7_k3wig")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -0.2, -0.2, 0)
+visible = false
 animation_name = "shove"
 
 [node name="Pickaxe" parent="Head/Camera3D/Hand" unique_id=274993237 instance=ExtResource("5_410g5")]
@@ -183,3 +184,8 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=112149706]
 libraries/ = SubResource("AnimationLibrary_emep4")
+
+[node name="RegenerationTimer" type="Timer" parent="." unique_id=916217034]
+wait_time = 5.0
+
+[connection signal="timeout" from="RegenerationTimer" to="." method="_on_regeneration_timer_timeout"]

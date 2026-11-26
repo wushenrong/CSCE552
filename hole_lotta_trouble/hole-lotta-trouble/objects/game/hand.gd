@@ -1,11 +1,8 @@
 extends Node3D
 
-
 @export var animation_player: AnimationPlayer
 
-
 var current_tool_index: int = 0
-
 
 @onready var tools = get_children() as Array[Tool]
 

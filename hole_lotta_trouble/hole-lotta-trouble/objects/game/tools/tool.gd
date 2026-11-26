@@ -1,7 +1,6 @@
 class_name Tool
 extends StaticBody3D
 
-
 @export var animation_name: String
 
 

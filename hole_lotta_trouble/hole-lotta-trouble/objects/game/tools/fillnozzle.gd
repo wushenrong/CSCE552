@@ -1,13 +1,10 @@
 extends Tool
 
-
 signal deposit_requested(origin: Vector3, target: Vector3)
-
 
 @export var camera: Camera3D
 @export var player_body: CollisionObject3D
 @export var deposit_range: float = 5.0
-
 
 @onready var nozzle_tip: Marker3D = $NozzleTip
 

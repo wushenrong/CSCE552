@@ -1,6 +1,5 @@
 extends Tool
 
-
 @onready var light: SpotLight3D = $SpotLight3D
 
 

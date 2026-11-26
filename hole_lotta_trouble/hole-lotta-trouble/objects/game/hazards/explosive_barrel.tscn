@@ -31,4 +31,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75081897, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionRadius" unique_id=1795211653]
 shape = SubResource("SphereShape3D_l3sc4")
 
+[node name="ExplosionSFX" type="AudioStreamPlayer3D" parent="." unique_id=428779799]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
