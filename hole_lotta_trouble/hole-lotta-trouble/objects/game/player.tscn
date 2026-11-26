@@ -41,6 +41,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/Camera3D/Hand/Shovel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.2, -0.2, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head/Camera3D/Hand/Shovel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_k3wig"]
 resource_name = "mine"
@@ -72,6 +96,31 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_q6njv"]
 resource_name = "shove"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Hand/Shovel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.56666666, 0.8333333, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1.6245039, 0.20306315, 1.4640859, 1, 1),
+"update": 0,
+"values": [Vector3(-0.2, -0.2, 0), Vector3(-0.2, -0.1, 0.7), Vector3(-0.2, -0.1, 0.2), Vector3(-0.2, -0.1, -0.1), Vector3(-0.2, -0.1, -0.1), Vector3(-0.2, -0.2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/Hand/Shovel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3333333, 0.76666665, 0.9333333, 1.2),
+"transitions": PackedFloat32Array(1, 0.2588161, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0), Vector3(1.5707964, -3.1415927, 0), Vector3(1.5707964, -3.1415927, 0), Vector3(0.8567983, -3.1415927, 0), Vector3(0, -3.1415925, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_emep4"]
 _data = {
@@ -118,7 +167,8 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 visible = false
 
 [node name="Shovel" parent="Head/Camera3D/Hand" unique_id=457291985 instance=ExtResource("7_k3wig")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.2, -0.2, 0)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -0.2, -0.2, 0)
+animation_name = "shove"
 
 [node name="Pickaxe" parent="Head/Camera3D/Hand" unique_id=274993237 instance=ExtResource("5_410g5")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.2, -0.2, 0)
